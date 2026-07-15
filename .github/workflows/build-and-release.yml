@@ -35,6 +35,22 @@ jobs:
           # 确认正文/标题所需的中文字体可被 Typst 命中
           typst fonts --font-path /usr/share/fonts | grep -E "Noto Sans CJK SC|Noto Serif CJK SC" | sort -u
 
+      - name: Build PDF (original)
+        working-directory: 软件工程报告
+        run: |
+          typst compile --font-path /usr/share/fonts main.typ "../软件工程模型与方法（第 2 版）.pdf"
+
+      - name: Show output (original)
+        run: ls -lh "软件工程模型与方法（第 2 版）.pdf"
+
+      - name: Upload PDF artifact (original)
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-full
+          path: "软件工程模型与方法（第 2 版）.pdf"
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Convert images to grayscale
         run: |
           pip install Pillow
@@ -42,7 +58,7 @@ jobs:
           du -sh 软件工程报告/img
           python3 -c "
           from PIL import Image
-          import os, glob
+          import glob
           imgs = glob.glob('软件工程报告/img/*.png')
           for p in imgs:
               img = Image.open(p)
@@ -55,19 +71,19 @@ jobs:
           echo "图片体积（转换后）："
           du -sh 软件工程报告/img
 
-      - name: Build PDF
+      - name: Build PDF (grayscale)
         working-directory: 软件工程报告
         run: |
-          typst compile --font-path /usr/share/fonts main.typ "../软件工程模型与方法（第 2 版）.pdf"
+          typst compile --font-path /usr/share/fonts main.typ "../软件工程模型与方法（第 2 版）- 精简版.pdf"
 
-      - name: Show output
-        run: ls -lh "软件工程模型与方法（第 2 版）.pdf"
+      - name: Show output (grayscale)
+        run: ls -lh "软件工程模型与方法（第 2 版）- 精简版.pdf"
 
-      - name: Upload PDF artifact
+      - name: Upload PDF artifact (grayscale)
         uses: actions/upload-artifact@v4
         with:
-          name: pdf
-          path: "软件工程模型与方法（第 2 版）.pdf"
+          name: pdf-slim
+          path: "软件工程模型与方法（第 2 版）- 精简版.pdf"
           if-no-files-found: error
           retention-days: 30
 
@@ -78,16 +94,25 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: pdf
+          name: pdf-full
+          path: dist
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: pdf-slim
           path: dist
 
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*.pdf
+          files: |
+            dist/*.pdf
           name: ${{ github.ref_name }}
           generate_release_notes: true
           body: |
             自动构建自 tag `${{ github.ref_name }}`。
 
-            附件为已编译的完整 PDF，可直接下载阅读。
+            | 文件 | 说明 |
+            |---|---|
+            | `软件工程模型与方法（第 2 版）.pdf` | 完整版（原图质量） |
+            | `软件工程模型与方法（第 2 版）- 精简版.pdf` | 精简版（图片灰度化，体积约一半） |
