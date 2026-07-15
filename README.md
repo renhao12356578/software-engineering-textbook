@@ -71,13 +71,33 @@ git push origin v0.2.0
 
 ## 👥 贡献者
 
-感谢以下参与者的工作（欢迎新增，按字母 / 拼音排序）：
-
-| 姓名 | 角色 |
-|---|---|
-| Mr.Hao | 排版、OCR 校对、CI/CD、项目维护 |
-
 欢迎贡献！请通过 Pull Request 提交修正：包括但不限于错别字、图表错位、标题层级、排版样式优化、章节内容补全等。提交较大改动前建议先开 Issue 讨论。
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/renhao12356578"><img src="https://avatars.githubusercontent.com/u/188761716?v=4?s=100" width="100px;" alt="Mr.Hao"/><br /><sub><b>Mr.Hao</b></sub></a><br /><a href="#projectManagement-renhao12356578" title="Project Management">📆</a> <a href="https://github.com/renhao12356578/software-engineering-textbook/commits?author=renhao12356578" title="Code">💻</a> <a href="https://github.com/renhao12356578/software-engineering-textbook/commits?author=renhao12356578" title="Documentation">📖</a> <a href="#design-renhao12356578" title="Design">🎨</a> <a href="https://github.com/renhao12356578/software-engineering-textbook/pulls?q=is%3Apr+reviewed-by%3Arenhao12356578" title="Reviewed Pull Requests">👀</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+### 添加贡献者
+
+PR 合并后，任何协作者都可以通过 Issue 评论召唤 bot 将贡献者加入此列表：
+
+```
+@all-contributors please add @github-username for code doc review
+```
+
+可用的贡献类型：`code` `doc` `design` `review` `bug` `ideas` `content` `infra` `tutorial` 等。
+
+（仅仓库管理员和合并 PR 的人可以发此指令，bot 会自动追加到 README 并提交）
 
 ---
 
