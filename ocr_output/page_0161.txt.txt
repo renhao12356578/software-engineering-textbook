@@ -1,0 +1,59 @@
+第6章 软件设计的概念及原则                             151
+
+性性能需求,对原有的软件结构进行调整的活动。
+
+0.0
+
+软件设计的一般原则
+
+软件设计既是过程,又是模型。设计过程是一系列迭代的设计活动,使设计者能够描述
+待构造软件的所有视图表示,即软件设计模型。然而,须注意的是,设计过程不仅是一种活
+动指南,只需按图索双就可以设计软件的,还需要富有创造力的技能.以往的经验,对于形成
+“良好?软件的感觉及对质量的要求等因素都是设计成功的关键因素。
+
+设计模型和建筑师的房屋设计图是类似的,它首先表示待构造事物的整体(例如房屋的
+三维表示) ,之后逐渐求精并细化事物以表示每个构造细节(例如管道布置、上下水通道)。
+同样,用于软件的设计模型提供计算机程序一系列不同维度的视图。DavisLDAYV95]提出
+软件设计的一般原则 ,作为软件设计质量的评价依据。下面的内容对其进行修改和扩充;
+
+The design process should not suffer from ‘tunnel vision, ’
+
+The design should be traceable to the analysis model.
+
+The design should not reinvent the wheel.
+
+The design should “minimize the intellectual distance” between the software and
+the problem as it exists in the real world.
+
+The design should exhibit uniformity and integration.
+
+The design should be structured to accommodate change.
+
+The design should be structured to degrade gently, even when aberrant data, e-
+vents, Or operating conditions are encountered.
+
+Design is not coding, coding is not design.
+
+The design should be assessed for quality as it is being created, not after the fact.
+
+The design should be reviewed to minimize conceptual (semantic) errors.
+
+正确应用上述设计原则时 ,软件开发人员创建的设计就会展现系统的外部和内部的质量因
+素。外部质量因素是用户能轻易观察到的软件特性(例如,正确性.可用性.速度和可靠性)。内
+部质量因素对软件工程师是非常重要的,从技术角度上能构造出高质量的软件设计。
+
+(1) 衡量设计过程的技术原则 。
+
+设计过程应该是可追踪和可回溯的。
+
+设计必须实现分析模型中描述的所有显式需求,必须满足用户希望的所有隐式需求。所
+谓隐式需求,即系统的安全性要求,降低或消除功能性错误,数据安全和完整性要求等。
+对于开发者和未来的维护者而言 ,设计说明文档必须是可读、可理解的,使得将来易
+于编程,易于测试,易于维护。
+
+(2) 衡量设计模型的技术原则 。
+
+D 设计模型应该展现软件的全瑶,包括从实现角度可看到的数据、功能、行为。
+@ 设计模型应该是一个分层结构。该结构
+
+> 使用可识别的设计模式搭建系统结构 。

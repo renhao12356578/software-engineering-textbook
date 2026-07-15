@@ -1,0 +1,76 @@
+第7章 面向对象设计方法                          203
+
+交给类 DBConnection ,各个 Mapper 调用 DBConnection 提供的功能实现和数据库之间连接
+的建立和释放。这样可以满足单一职责原则 ,也满足易变部分和稳定部分分离的原则。因
+为使用不同的关系数据库时 ,主要是建立数据库连接部分有一些不同,其他实现增删改查的
+SQL 语句是基本一样的。
+
+«interface»
+
+DBFacade                                                     [Mapper
+~mapperContainer                                                                                             DBConnection
+;            5        7      5a                              +boolean insert(Object obj)
++boolean insert(Object obj.Class)                   |              .     7,     il
++boolean delete(String condition.Class)f Class} 一一 bret eerie ore prima
+
++boolean update(Object obj.Class)
+
++Objectget(String condition.Class)
+
++List gets(String condition class)
+
+-IJMapper getMapper(Class)                                                        4
+|
+
++Object get(String condition)
+-List gets(String condition)
+
+|
+StudentMapper        TestMapper | | TestPaperMapper
+
+图 7-16 持久化层设计类
+
+上述设计遵循开闭原则。由于 DBFacade 只依赖接口 IMapper,因此新增领域类时,只
+需新增对应实现 IMapper 接口的 Mapper 类 ,而对 DBFacade 没有任何影响。
+
+下面以对 Student 对象的持久化操作为例 ,进一步介绍持久化层如何通过 DBFacade 对
+外提供持久化服务。
+
+图 7-17 是新增一个学生对象的协作图。当业务/领域对象或者控制器/处理对象调用持
+入化层的服务时 ,首先向 DBFacade 对象发送 insert 消息 ,消息中第一个参数 theStudent 是待持
+AAGH student 对象的引用,第二个参数 Student 是待持久化的领域对象所属的类名。DBFa-
+cade 接收到该条消息后,首先向自身发消息 getMapper来获取负责对类 Student 的对象进行持
+久化的对象 theStudentMapper,然后向 theStudentMapper 对象发送 insert 消息 ,让其将 theStu-
+dent 对象持久化到存储介质。theStudentMapper 对象对应的类为 StudentMapper。
+
+1:theStudentMapper=getMapper(Student)
+
+—
+
+ok=insert(the student,student)
+
+:DBFacade
+
+2:ok=insert(the student)
+
+ee
+
+theStudentMapper:
+IMapper
+
+图 7-17 新增一个对象的协作图
+使用 Java 语言书写 DBFacade 类的部分代码如下 :
+
+public class DBFacade {
+
+private Map<(Class, Class> mapperContainer;
+
+public DBFacade()
+
+{
+
+mapperContainer = new HashMap<Class,Class>();
+mapperContainer. put(TestPaper. class, TestPaperMapper. class) ;
+mapperContainer. put(Test.class, TestMapper. class) ;
+
+mapperContainer. put(Student. class, StudentMapper. class) ;

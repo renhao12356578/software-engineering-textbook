@@ -1,0 +1,66 @@
+附录三                                               349
+
+根据以上的分析结果 ,给出“指派课题"系统顺序图,如图 B-17 所示。
+
+f
+«create»                                     «create»
+
+2:create()     Rae   2:create()
+
+|
+
+1
+
+1
+
+«return»                                                          i
+4-topicList
+1
+
+|
+
+1
+
+1
+S-student ListQ)                                                        «create»
+«return»                                       il           pM!        Lt |
+6:studentList()
+pene ceeee                                |
+1                                          上
+1           7:studentInfo()                             MM
+1
+|                    1               «return»
+|             8:studentInfo    ]
+放一一一一一一一一一一二pats a Sr Sessseeaessssa a a a al
+[教师接受学生]             |           l:acceptStudent() |                              上
+                一                             7
+|                    1                             1
+|                    1                             |
+|                    |               «return»       |                             |
+L__ eeeee20k ___-二
+1                                                                                |
+1                    |                             |                              1
+|                    1                             1                              |
+—p=" Seesoie ep emee eee epo-----------------1+----
+[教师拒绝学生|                      1                   1l:refuseStudent()     |                                                  I
+H                    |                             1
+|                    |                «return»      |
+a                   1                 2:0k        1
+人三一RING  1
+1                    {                             |                              |
+1                    |                              1
+|                    |                             1                              |
+|                    1                             1                              |
+图 B-16 “选择毕设学生”用例的顺序图
+表 B-2 “指派课题?用例描述
+用例名称                                             指派课题
+需求对应关系      将未选中课题的学生和未达到选题需求人数的课题进行指派
+用例目标        给未选中课题的学生指派上课题
+教务处人员已登录
+前置条件        系统处于管理员指派课题周期
+学生拥有某个课题
+后置条件        课题已选题人数加 1
+教师能够看到指派课题的学生
+主要角色        教务处人员
+次要角色        无
+

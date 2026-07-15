@@ -1,0 +1,69 @@
+196                          软件工程模型与方法(第 2 版)
+
+据操作契约的内容确定后置条件的产生过程。
+
+CL) 假设某单位的人员招聘考试,内设不同部门的考试和考场;
+
+(2) 考生进入某单位;
+
+(3) 单位的门卫询问考生的到来事由后 ,告知其考场并放行;
+
+(4) 考生在考场门口被监考教师要求出示考生信息,经过与考生注册信息比对确认后
+要求考生签字登记;
+
+(5) 考生根据报考单位进入对应的考场,准备考试。
+
+根据以上内容确定考生考场门卫,监考教师.考生注册信息.考场及考试业务对象的交
+互过程,确定软件系统的控制器对象.业务逻辑层对象、.持久化层对象应该分别对应哪个业
+务对象? 考生实例应该由哪个软件对象创建? 在哪个操作步骤考生实例和考场实例进行关
+联? 考生的注册信息应由哪个对象实例所持有?
+
+2. 对象设计:getAvailableTestPapers(CstuId:string)
+
+getAvailableTestPapers 操作的契约如表 7-5 所示。
+
+表 7-5 ”getAyvailableTestPapers 操作的契约
+
+操 作         getAvailableTestPapers(stuld; string) ,罗列出当前对考生有效的所有考卷
+交叉引用               用例 :考试
+
+前置条件             考生已经登录系统
+
+后置条件               着干个考卷实例被创建(实例创建)
+
+实现该操作的协作图如图 7-8 所示。
+week
+选择开始考试 on 查询已完成的省斌
+
+一一一一一OD & 开始新的考试
+
+ ae]                              L.1:stulD=getIDQ)
+
+=~      theStudent:
+学生 actionPerformed                                                   Student
+(actionEvent)                               I:testPapers=
+getAvailableTestPapers()            |.2:the TestPapers=gets(stulD,TestPaper)
+> «UL»         一
+和                       controller:        >         .
+mainWindow               TakeTestController             :DBFacade
+
+2:create(theTestPapers.controller) |
+
+2.1*:theTestPaper=get()
+
+: «UD»              sis
+showTestPaper                                    theTestPapers
+Window                                        :TestPaper
+
+| 2.2*:testName=getSubjectName()
+
+theTestPaper:
+TestPaper
+
+Al 7-8 协作图一一显示所有考卷
+
+当从主窗体上选择开始新的考试时,须弹出一个窗口 ,该窗口罗列出该学生能参加所有
+考试对应的考卷。谁负责获取该生的所有考卷? 在此将获取考卷的职责交给控制器对象
+controller, controller 接收到 getAvailableTestPaper 消息后,首先通过消息 1. 1 从学生对
+象 theStudent 处获取学号 ,然后通过消息 1. 2 从 DBFacade 处获取放置一系列考卷对象的
+

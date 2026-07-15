@@ -1,0 +1,72 @@
+第7章 面向对象设计方法                          199
+
+:《UI>
+
+Window           theTest: Test
+
+startTest |                      | 3:duration=getDuration()
+学生                      .     _
+controller:                                   aitheTestger(         .
+TakeTestController               1  :DBFacade
+人ENET | }] loadQuestions()  Aiea) |  { 1.2.1 theRuleltems=gets(rulelD,Ruleltem)
+et(ruleID.Ru
+getFirstQuestion()  | 5:setTest(theTest) .
+eves aper               1.2:loadRuleltems()                  1,4.1*:theRuleltem=get()
+estPaper                                   一一      theRuleltems:
+
+一>      —
+F                      一一        theRule:Rul
+4, l:theQuestion=get()}] | 1,3:create() _1.4:loadQuestions   asia                 Ruleltem
+
+theQuestion      1.4.2*:JoadQuestions
+TEST        (theQ    )     (theQuestions,theQue- | 1.2.2:create()
+Question                        stionCatalog)
+1.4.2.3*:add(question) |theRuleltem:        itheQuestionCatalog:
+|          =      Ruleltem    一一一    QuestionCatalog
+
+1.4.2.1*:questionSpec=                                     _
+getQuestionSpec(questionlD)  ! 4.2.1.1:questionSpec=
+
+;               |                                                               get(questionID)
+1.4.2.2*:create(questionS pec)                                     一-一
+theQuestion:               theQuestionSpecs:
+
+Question                      QuestionSpecification
+
+图 7-11 协作图一一开始考试
+
+控制器收到系统事件对应的系统操作共有 5 个步又:
+
+(1) 让 theTestPaper 获取考题放人考题容器 theQuestions 中;
+
+(2) 创建考试实例 theTest;
+
+(3) 从 theTest 处获取考试时长;
+
+(4) 从 theTestPaper 处获取第一道考题;
+
+(5) 让考试实例和考卷实例形成关联。
+
+其中,第 1 步比较复杂,又可以细分为若干步骤:
+
+(1) 创建考题规则实例 theRule。
+
+(2) 要求 theRule 装载考题规则项实例 theRuleItem。须说明的是,此时 theRule 将创建
+theQuestionCatalog 对象 , 而 theQuestionCatalog 对象创建时,将调用 DBFacade,从数据库中获
+取考题规格说明 .实例化为 questionSpec 对象 ,并装载到容器 theQuestionSpecs 中。为了让图
+7-11 尽量简洁,没有对 theQuestionCatalog 装载 questionSpec 对象相关操作进行描述。
+
+(3) 创建考题容器 theQuestions,
+
+(4) 将装载考题 theQuestion 到考题容器 theQuestions 的职责分配给 theRule,theRule 又往
+下细分给各个考题规则项 theRuleItem,由 theRuleltem 真正将考题装载到容器 theQuestions 中。
+
+细心的读者已经发现,图7-11 AR 7-8 有一点不相符,在表 7-8 后置条件第 4条说的是
+考卷生成规则实例和考试实例形成关联,而图 7-11 实际上是让考卷生成规则实例和考卷实
+例形成关联,这样并不违反领域模型。因为虽然在领域模型中考卷生成规则和考试关联,但
+这个“关联?在设置考试时就已经在数据库中通过外键完成,而不是在考试用例中建立。在
+考试用例中,让考卷生成规则实例和考卷实例关联,方便后续处理。
+
+6. 对象设计:submitAnswer(questionId:string ,answer:string)
+
+submitAnswer 操作的契约如表 7-9 所示。

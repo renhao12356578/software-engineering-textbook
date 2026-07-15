@@ -1,0 +1,51 @@
+第7章 面向对象设计方法                         207
+
+按照前面介绍的模型层次化原则,用户界面层的类可以调用控制器/处理层中的类,也
+可以调用业务/领域层中的类。在登录用例中,为了验证用户名和密码,mainLogon 调用
+LogonController,由后者协调领域类完成验证逻辑。 在考试用例中,showTestPaperWin-
+dow ,testPaperLogon 和 TestPaperWindow 都调用 takeTestController,由后者来协调实现
+应用逻辑。同时,为了获取并展示考试名称,showTestPaperWindow 调用领域类 TestPaper
+获取考试名称。
+
+2. 控制器/处理层设计类图
+
+如图 7-23 所示 ,控制器层有两个类,分别为 LogonController 和 takeTestController ,分
+别作为用户登录用例和考试用例的控制者。
+
+@& getAvailabletest? aper ()
+入 setTestPaper ()
+® logon TestPaper ()
+@& startTest ()
+@ endTest ()
+score (.
+Controller Layer
+Eq totalScore
+Gm selectScore
+getSubjectName ()
+@ getPwed ()
+@ getFirstQuestion ()
+@® loadQuestion ()
+§® getScore ()
+®% getQuestion ()
+                                                                           Application Layer
+
+Persistence Layer
+
+图7-23 控制器/处理层类图
+
+按照前面介绍的模型层次化原则 ,控制器/处理层的类可以调用业务/领域层中的类 ,也
+可以调用持久化层中的类。在登录用例中,为了验证用户名和密码,LogonController 向业
+务/领域层的 Student 对象请求正确的密码。在考试用例中,takeTestController 请求业务/
+领域层的 Student, TestPaper, Test 和 Question 对象执行相关操作。同时,takeTestCon-
+troller 也请求持久化层的 DBFacade 的相关操作 ,实现对象的持久化。
+
+3. 业务/领域层设计类图
+
+如图 7-24 Bran, 领域层的类有:Student(学生)、TestPaper(考卷) .Question (考题)、
+Test(考试) .Rule(考卷生成规则)、RuleItem(考卷生成规则项) \.QuestionCatalog(考题规格
+说明目录)和 QuestionSpecification (考题规格说明)。其中,Question 类是抽象类,它还有
+一系列代表选择题 .填空题等的子类 ,为保持图简洁,未在本图中画出。
+
+4. 持久化层设计类图
+
+如图 7-25 所示 ,持久层除了类 DBFacade 和 DBConnection ,以及接口 IMapper 之外,还

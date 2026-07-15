@@ -1,0 +1,72 @@
+342                         软件工程模型与方法(第 2 版)
+
+下 get_amount_stu()
+
+«return»
+2:get_amount_stu()
+
+LE
+&
+Pyare
+
+[amdhint_stu>30]
+1
+
+ti
+
+1:Do_operation1()
+
+2:Do_operation2()
+
+-一一二一一一一一一一一一一一一一一一一上广一一一一一一一一一一一一十一一一一一一一一
+[else]!                               1
+
+1 :Do_operation3()
+1
+
+1
+«return»
+2:Do_operation3()
+“TT
+
+图 B-5 顺序图的备选结构
+
+]:get_name Stu()         —
+
+«return>
+2:get_name_stu()
+
+{                        1
+|                       |
+村
+1
+|
+
+[name_stu=null|
+
+|
+|
+1
+|
+1
+1
+1
+|
+|
+|
+1
+1
+|
+|
+1
+1
+|
+
+1:Do_operation()
+1
+1
+1
+«return»
+2:Do_operation()
+
+图 B-6 顺序图的选项结构

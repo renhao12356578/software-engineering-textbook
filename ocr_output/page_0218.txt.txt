@@ -1,0 +1,57 @@
+208
+
+软件工程模型与方法(第 2 版)
+
+有 8 个 Mapper 类的子类,它们分别负责对对应领域类的持久化。
+
+Controller Layer
+
+a=!
+
+Eq isvalid
+
+Gg createTime
+
+#8 loadQuestion ()
+@ loadRulettem ()
+
+Application Layer
+
+mapperConainer
+
+wore
+oor"
+we
+
+Persistence Layer
+
+@% getMapper ()
+®% insert)
+
+多 delete ()
+
+® update ()
+@% get ()
+
+% gets
+
+Al 7-24 领域层类图
+
+目pBFacade
+
+“2 mapperConainer
+®, getMapper ()
+@® insert ()
+® delete ()
+
+@ update ()
+@% get
+| # gets)
+
+®& insert ()
+@& delete ()
+oD ® update ()
+
+®oet0
+
+图 7-25 持久层类图

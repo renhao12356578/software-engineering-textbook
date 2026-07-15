@@ -1,0 +1,36 @@
+第4章 面向对象需求分析方法              95
+
+private shipment shipment;
+}
+
+publicclassCustomer
+
+{
+private String Name;
+private String creditCardNumber ;
+private shipment shipment;
+
+}
+
+4. $% ASK & (Composition)
+
+当一个类 A(整体类)完全拥有另一个类 B(部分类) ,且其他任何类都不能分享类了时，
+它们之间存在组合关系。当整体类消失时 ,部分类也不会存在。例如,文档由章节组成,如
+果没有文档,章节不会独立存在。在 UML 中,由带有由实心菱形的直线表示组合关系,实
+心鞭形一方连接整体类 ,另一端连接部分类 ,文档与章节的组合关系如图 4-14 所示。
+
+图 4-14 类的组合关系一
+
+类之间的组合关系体现在代码上时 ,一般由整体类对部分类进行实例操作 ,比如下面的
+代码,如图 4-15 所示。
+
+图4-15 类的组合关系二
+
+public class Window extends Frame
+{
+TextField txt = new TextField("hello");
+Button btn = new Button("ok");
+MenuBar mbr = new MenuBar();
+Menultem item = new Menultem("Exit");
+
+Menu m = new Menu("File");

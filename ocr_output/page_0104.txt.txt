@@ -1,0 +1,56 @@
+94                          软件工程模型与方法(第 2 版)
+
+private Book [ ] book;
+
++--//other attributes & methods
+}
+Public class Book {
+
+private Student student;
+
+---// other attributes & methods
+}
+
+如果关联关系之间存在导航关系,说明一个类是否可以访问另一个类的属性或者该类
+是否在属性中包含另一个类对象的引用,如图 4-11 所示为单向关联关系。
+
+| 图书    -学生
+
+图 4-11 类之间具有导航的关联关系
+图 4-11 描述的“关联?所对应的代码为
+
+Public class student{
+
+private Book [ ] book;
+
+-++// other attributes & methods
+}
+Public class Book{
+
+//private Student student;
+
+…/ /other attributes & methods
+}
+
+3. RM RS HK & (Aggregation)
+
+当一个类 A(整体类)拥有另一个类 B(部分类) ,同时其他的类 C 也可分享类 B,即类 BASE
+全被类 A 所拥有时 ,它们之间存在聚合关系。换言之,部分类的对象不会因为整体类消失而不存
+在,这是聚合关系与组合关系之间最重要的区别。例如,学校由教师学生,教学.科研等对象组
+成,则学校和教师之间存在聚合关系。在 UML 中,聚合关系由带空心菱形的直线表示,空心蓉形
+一方连接整体类 ,另一端连接部分类,学校和教师的聚合关系如图 4-12所示。
+
+图 4-12 类的聚合关系一
+聚合关系的代码表示与关联关系是一致的,都体现在属性的引用上。比如下面的一段
+
+代码,如图 4-13 所示。
+public class Shipment
+{
+private Ship ship;
+private Customer[ ] customer;
+}
+public class Ship
+{
+
+private String id;
+private String owner; 4-13 类的聚合关系二

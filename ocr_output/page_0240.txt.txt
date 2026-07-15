@@ -1,0 +1,60 @@
+230                         软件工程模型与方法(第 2 版)
+
+与图 8-23 表示的流程图对应的判定表如图 8-24 所示。在表的右上半部分列出所有条
+件,T 表示该条件取值为“真”,F 表示该条件取值为“假>“空白”表示这个条件无论取何值
+对动作不产生影响。在判定表右下半部分中列出所有的处理结果,画 Y 表示执行这个动
+作光空白”表示不执行这个动作。判定表右半部的每一列实质上是一条规则 ,规定与特定条
+件取值组合相对应的动作。
+
+1 2 3 4 5 6 7 8 9 1 I 12 13 1
+X, | T
+X/-}r}ri]rilrl]eFle}|ele] Fl el] ee] fF] e
+x,|-]-]-]-]-] 7] 7] r]e}] eb} el] el] ef} e
+x|-|-|-|1-|1-|1-|-|1-|F|FITITIEIE
+4  -|-}]-]-]-]-]-]F] Fe] -}] -] tl] t
+Slory slelel filed edc] ctr} cy cic
+x    F  ~Po-P=ye pry -poprd-
+(Tha leled et cyi coer y recy ry cic
+X%]T]rf]-| tr] el] -|]r}ele}] rl] ror} el rl e
+X, | T
+alsy
+bly |Y¥]}]Y}]Y¥]Y¥}ly}ylyly]y]y}]y]yfy
+ol-1|Y/¥Y¥]¥}¥}y]ylyly}yvy]y]}y}yfy
+PO ns ee ee OO OO
+el- |] 7} 7) 7) 77 74777477 ~-) ¥) YI | =
+rlylclclstlcl-d-}-]-1-]-1-]¥]y
+
+ylylyfly}/-]-/]-]-]-]-]-] -| -=
+gzg|二|-|-|YlYl-|1-|-|-|1-|1-|1-|1-|-
+1IIYYlY| -|-1-1-|1- 1-一|-|1 -| =-| =
+jl|lY|l-|-|vl-|-lYl-|-lYlYl-|lYrl-
+
+图 8-24 反映程序逻辑的判定表
+
+判定表的优点是能够简洁、无歧义地描述所有的处理规则。但判定表表示静态逻辑，
+是在某种条件取值组合情况下可能的结果,不能表达加工的顺序,也不能表达循环结构,因
+此判定表不能成为一种通用的设计工具。
+
+8.8.5 PDL
+
+PDL(Program Design Language)是一种用于描述功能模块的算法设计和加工细节的
+语言 ,称为程序设计用语言,是一种伪码。一般而言 ,伪码的语法规则分为外语法和内语法。
+外语法应当符合一般程序设计语言常用语句的语法规则;内语法可以用英语中一些简单的
+句子 .短语和通用的数学符号来描述程序应执行的功能。
+
+PDL 具有严格的关键字外语法,用于定义控制结构和数据结构,同时表示实际操作和
+条件的内语法又是灵活自由的,可使用自然语言的词汇。下面举一个例子,它是一个具有查
+
+找拼写错误单词功能的算法 :
+PROCEDURE spellcheck IS                                                    查找错拼的单词
+BEGIN
+split document into single words                         把整个文档分离成单词
+look up words in dictionary                               在字典中查这些单词
+
+display words which are not in dictionary
+create a new dictionary
+
+END spellcheck
+
+显示字典中查不到的单词
+造一新字典

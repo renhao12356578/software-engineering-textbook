@@ -1,0 +1,69 @@
+第7章 面向对象设计方法                         201
+
+8，对象设计:endTest()
+
+endTest 操作的契约如表 7-11 Pra.
+表 7-11 endTest 操作的契约
+
+#2 4                                            endTest() ,结束考试
+交叉引用                 用例:考试
+BBA                 一个考试在进行中
+
+(1) 考卷实例的选择题总分属性被修改(属性的修改)
+
+(2) 一个考试实例和一个考卷实例间的“关联?被断开
+
+(3) 一个考卷生成规则实例和一个考试实例间的“关联”被断开
+CA) 考着生成规则项实例和考卷生成规则实例间的“关联?被断开
+(5) 考题子类的实例和考卷实例间的“关联"被断开
+
+(6) 一个考题子类的实例和一个考题规则说明实例的“关联?被断开
+(7) 一个考试实例被删除
+
+(8) 若干个考卷实例被删除
+
+(9) 一个考卷生成规则实例被删除
+
+(10) 若干个考卷生成规则项实例被删除
+
+(11) 若干个考题子类的实例被删除
+
+(12) 若干个考题规则说明的实例被删除
+
+后置条件
+
+实现该操作的协作图如图 7-14 所示。
+
+: «UID       | :DBFacade
+一一一一一a testPaper
+
+Window                                                                          2.3:insert(theTestPaper, TestPaper)
+DS he                             |      pad Test                                          2.1*:theQuestion=get(sequence
+学生                                                  2:save()
+controller:                   a ara?            theTestPaper:           一一一和        theQuestions
+TakeTestController            一 一一              TestPaper             ==          :Question
+
+Uscore=getScore()                      1.1*:theQuestion=get(sequence)
+
+2.2*-save() |   |   1.2*:score=getSubScore()
+
+theQuestion                              theQuestionSpec:
+Quesion         一一一        QuestionSpecification
+
+12.1:answerl=getAnswer()
+
+2.2.1:insert
+(theQuestion,Question)
+
+|    :DBFacade
+
+图7-14 协作图 结束考试
+
+学生选择结束考试时 ,须完成三件事情,首先计算出选择题的成绩,然后将考卷对象和
+对应的考题对象保存到数据库中,最后从内存中删除对象间的“关联?和对象。
+
+谁负责计算选择题的成绩? 由于试卷对象知道各个选择题对象,因此须由考卷对象承
+担该职责 ,而考卷对象再将职责下分到各个选择题对象。为了计算选择题得分,考题对象首
+先从考题规则说明对象 theQuestionSpec 中获取标准答案。为了使图 7-14 清晰易识,没有
+将删除对象间的“关联?及删除对象的职责进行分配。
+

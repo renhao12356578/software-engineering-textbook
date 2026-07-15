@@ -1,0 +1,55 @@
+194                         软件工程模型与方法(第 2 版)
+
+表7-2 登录用例和考试用例中的系统操作
+
+操作名称                                                        操作说明
+logon(role: string, Id; string , pwd: string)            登录系统。操作中的参数分别表示用户名和密码
+getAvailableTestPapers (stuld: string)          罗列出对考生有效的所有考卷
+select TestPaper(courseName; string)           选择一份考卷
+logonTestPaper (pwd:string)             登录一门考试,验证输入的考试密码和考卷要求的密码是否一致
+startTest()                        开始考试
+submitAnswer(questionld; string,answery string) | 提交某道考题的答案
+getNextQuestion()                    获取下一题
+
+endTest()                           结束考试
+
+1. 对象设计:logon(role:string,Id:string,pwdl:string)
+logon 操作的契约如表 7-3 所示。
+表 7-3 logon 操作的契约
+
+操作                                  logon(role: string, Id: string, pwd: string) ,登录系统
+交叉引用                                 用例:登录
+前置条件                   无
+
+CL) 一个考生实例被创建(实例的创建)
+
+后置条件         (2) 考生实例与考试建立“关联"(选项)
+
+实现该操作的协作图如图 7-7 所示。
+
+欢迎过入在线考试系统
+|
+eines          系统事件
+||       en pee
+PS, OME O8M ORR      了
+ae            /
+a
+学生                                    这      2.3:[theStudent!=NULL]
+actionPerformed                  /       eligible=equal(pwd,realPwd)
+(actionEvent)                 /              ae
+7
+Co                   2.1 :theStudent=
+2:eligible=L     d.pwd        |   |
+eligible=Logon( id. pwd)                 get(id.Student)
+> «UL»        — =            :              一一一
+mainLogon      >       LogonController                 ‘DBFacade
+I:create()
+3:[eligible=true]                                        2.2:[theStudent!=NULL]
+create(the Student)  |                           realPwd=gerPwd()   theStudent:
+Student
+_lcreate(theStudent
+> «UD          ==              controller:
+mainWindow                     TakeTestController
+
+图 7-7 ”协作图一一登录系统
+图 7-7 中出现类 DBFacade。该类位于持久化层,作为持久化层对外的统一服务窗口。

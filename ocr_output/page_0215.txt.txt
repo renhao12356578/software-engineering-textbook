@@ -1,0 +1,90 @@
+第7章 面向对象设计方法                          205
+
+}
+
+}
+}catch(SQLException e) {
+
+System. err. println(e. getMessage()) ;
+}
+
+return false;
+
+ 7-18一图 7-21 分别是针对 DBFacade 中另外 4 个操作的协作图。这4 个操作对应的
+
+方法和 insert 操作相似。
+
+StuList=gets(condtion:Student)
+
+l:theStudentMapper=getMapper(Student)
+
+一一一
+
+ok=insert(the student.student)
+
+:DBFacade
+
+2:ok=insert(the student)
+
+——
+
+theStudentMapper:
+IMapper
+
+图 7-18 删除一个对象的协作图
+
+1:theStudentMapper=getMapper(Student)
+
+ok=update(the Student Student)    |          2:ok=update(the Student)
+:DBFacade               | theStudentMapper:
+
+Mapper
+
+图 7-19 更新一个对象的协作图
+1:theStudentMapper=getMapper(Student)
+
+theStudent=get(condition,Student)
+
+:DBFacade
+
+2:theStudent=get(condition)
+
+—
+
+theStudenMapper:
+IMapper
+
+| |  2. L:create()
+
+theStudent:
+Student
+
+图 7-20 查询一个对象的协作图
+
+l:theStudentMapper=getMapper(Student)                  2.2:loadObjects()
+
+—_    一-一
+
+2:stuList=gets{condition)       |     |
+
+一一一
+
+:DBFacade
+
+theStudentMapper
+:1Mapper
+
+Mt |    t                                   ;
+create) 4/2.2.2*-add(theStudent) 2.2.1 *:create()
+
+‘Student         |                               theStudent:
+
+Student
+
+图 7-21 查询多个对象的协作图
+
+7.3.7 创建设计类图
+
+通过类职责分配 ,可找出实现用例的类,以及类的职责。结合分析阶段的领域模型 ,可
+以得到设计阶段的类图 ,简称设计类图。设计类图中主要定义类,类的属性和操作,但不定
+义实现操作的算法。创建设计类图的步骤如下 :

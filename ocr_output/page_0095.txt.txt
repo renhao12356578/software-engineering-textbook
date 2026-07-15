@@ -1,0 +1,74 @@
+第4章 面向对象需求分析方法                        85
+
+(2) 语义规则(Rule) 。
+
+HM Name、Scope、Visibility Integrity, Execution,
+
+(3) 38 FA SL#] (Common Mechanism) 。
+
+@ Specification, Adornment,Common Division, Extensibility Mechanism.
+
+(4) 384 (Thing) 。
+
+@ StructuralThing; Class, Interface, Collaboration, Use Case, Component, Node,
+
+@ BehaviorThing; Interaction, State Machine,
+
+W@ GroupThing; Package,
+
+BM AnnotationThing; Note,
+
+(5) 关系(Relationship) 。
+
+ME 依赖(Dependency) ;
+
+国 XK (Association) ;
+
+Wi 467K (Generalization) ;
+
+Mi 8c 3 (Realization) 。
+
+3. UML 的视图和图
+
+UML 是用来描述模型的,用模型来描述系统的结构(或静态特征)及行为(或动态特
+征)。它从不同的视角为系统的架构建模,以用例视图为核心描述系统的不同视图(View)，
+称为 4十1 视图,如图 4-1 所示。
+
+(1) 用例视图CUse Case View) :强调从
+用户的角度看到的或需要的系统功能,这种      Ne
+视图也称为用户模型视图(User Model
+View) 或场景视图(CScenario View).
+
+(2) 逻辑视图(Logical View) :展现系统
+的静态或结构组成及特征,也称为结构模型
+
+组件视图
+
+Component View
+
+用例视图
+
+Use Case View
+
+进程视图                           部署视图
+视图(Structural Model View)或静态视图          Process View                    Deployment View
+(Static View).
+(3) 进程视图(Process View) :描述设           图4-1 UML 的4十1 视图
+
+计的并发和同步等特性,关注系统非功能性
+需求,也称为行为模型视图(Behavioral Model View) .过程视图(Process View) .协作视图
+(Collaborative View)和动态视图(Dynamic View).
+
+(4) 组件视图(Component View) :关注软件代码的静态组织与管理,也称为实现模型
+视图 (Implementation Model View )和开发视图(Development View) 。
+
+(5) 部署视图(Deployment View) :描述硬件的拓扑结构 ,以及软件和硬件的映射问题，
+关注系统非功能性需求(性能.可靠性等), 也称为环境模型视图或物理视图(Physical
+View) 。
+
+每一种 UML 的视图都是由一个或多个图(Diagram)组成的,一个图就是系统架构在某
+个侧面的表示,所有的图组成系统的完整视图。UML 规范提供下述 9 种基本的图形元素 :
+
+(1) FABIA (Use Case Diagram) :从使用者的角度描述对系统功能的要求 。
+
+(2) 类图(CClass Diagram) :描述系统的静态结构(类及其相互关系) 。

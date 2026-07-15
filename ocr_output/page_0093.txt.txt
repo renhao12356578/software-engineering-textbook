@@ -1,0 +1,45 @@
+第4章 面向对象需求分析方法                        83
+
+OOSE 认为开发活动主要有 3 个步骤:分析、构造和测试。其中,分析产生 RM 和 AM;
+两者作为构造活动的输入产生 DM 和 IM;最后对实现模型进行测试,是 TM。OOSE 贡献
+在于首次使用 Use Case 词汇来描述用户对于系统功能的需求,其次系统化地提出各阶段的
+建模方法。
+
+4.2 统一建模语言简介
+
+随着面向对象技术的迅速发展,在 20 世纪 80 年代到 1993 年期间,面向对象方法出现
+百家争鸣的局面,进而集中体现在上述的四大流派:OOA/VOOD、Booch 方法`、OMT 和
+OOSE。由于用户很难在不同方法的模型间相互转换,这时需一种集众家之长统一的建模
+语言,UML 正是在这种背景下应运而生。统一建模语言(Unified Modeling Language，
+UML) J# | Grady Booch Ivar Jacobson 和 James Rumbaugh 发起,在 Booch 方法`、OOSE 方
+法和 OMT 方法基础上,广泛征求意见,集众家之长,几经修改而形成一种面向对象分析与
+设计建模语言。这种建模语言得到工业界的广泛支持,由 OMG (Object Management
+Group)采纳作为面向对象建模的行业标准,成为软件行业第一种统一的建模语言。
+
+4.2.1 UML 的诞生和发展
+
+UML 从诞生开始到最终成为行业标准经历了一个相对漫长的发展过程,共有 4 个发
+展阶段,分别是独立发展、统一、标准化和工业界应用。
+
+C1) 独立发展:各种方法不可避免地存在差异,这种差异限制所有方法的推广使用。
+Booch( Booch 方法)和 Rumbaugh(OMT 方法)首先意识到这一点,于是决定改变这种现状。
+
+(2) 合并统一:1994年 10 月,在 Rational 软件有限公司工作的 Booch 和 Rumbaugh FF
+始致力于这项工作。一年以后,Booch 和 Rumbaugh 完成两种方法结合后的第一个草案 ,称
+之为 UM 0.8(Unified Method 0.8)。UML 0.8在1995 年 10 月的OOPSLA 会议上发布
+之后,新加入 Rational 软件有限公司的 OOSE 方法创始人 Jacobson 也加盟这一工作。经过
+共同努力,于1996年6月和10月发布两个新的版本 UML 0.9 和 UML 0. 91 ,并正式命名
+为 UML。
+
+(3) 标准化阶段:当 UML 对一些公司变得至关重要时 ,曾经制定过 CORBA ,接口定义
+语言(IDL) 基于 Internet 的 ORB 协议(IIOP)等标准的对象管理组织COMG)开始对此表
+示出浓厚的兴趣。不和久 ,为了使 UML 标准更加完善,OMG 发布征求建议书(RFP)。随后，
+Rational 软件有限公司建立 UML Partners 联盟,继续致力于由三位专家所开创的工作。
+这个联盟包含很多开发商和系统集成公司,它们是 Digital Equipment Corporation, HP,i-
+Logix, IntelliCorp, IBM, ICON Computing, MCI Systemhouse, Microsoft, Oracle, Ra-
+tional Software, TI 和 Unisys, jx #62. ate AH. HE 1997 年发布 UML 1.0,
+
+与此同时,另外一些公司(IBM & ObjectTime, Platinum Technologies, Ptech, Taskon
+& Reich Technologies 和 Softteam)研究并提交关于 UML 的另一套建议。在 UML 的发展
+史上 ,这套建议和前面那套建议不是互相竞争的,而是互相补充的。后面的团队后来也加入
+UML Partners 联盟 ,研究成果被结合,这就是 1997 年 9 月发布的 UML 1.1。UML 1.1 被

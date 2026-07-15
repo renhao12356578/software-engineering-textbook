@@ -1,0 +1,53 @@
+200                         软件工程模型与方法(第 2 版)
+
+表7-9 submitAnswer 操作的契约
+
+操作                         submitAnswer(questionld ;string,answer:string)提交某道考题的答案
+交叉引用                用例:考试
+前置条件                 一个考试在进行中
+a BA                 一个考卷子类实例的答案属性被修改
+
+实现该操作的协作图如图 7-12 所示。
+
+: «UID
+--------          testPaper
+Window
+学生                        |   saveAnswer(answer)
+l:setAnswer(answer)
+controller:                                                             theQuetion:
+TakeTestController                                                        Question
+
+图 7-12 ”协作图一一提交某道考题的答案
+考题的答案保存在考题对象 theQuestion 中 。
+
+7. 对象设计:getNextQuestion()
+getNextQuestion 操作的契约如表 7-10 所示。
+表 7-10 getNextQuestion 操作的契约
+
+操作                         getNextQuestion() ,获取下一题
+交叉引用                 用例:考试
+前置条件                 一个考试在进行中
+后置条件                 考卷与考题实例进行关联
+
+实现该操作的协作图如图 7-13 所示 。
+
+: «UI»
+Le abort oe-            testPaper
+Window
+
+Previous/next
+Question
+
+学生
+
+controller:
+TakeTestController
+
+| | :theQuestion=getQuestion(sequence)
+
+theTestPaper:                                                        theQuestions:            |
+TestPaper                                                  Question
+
+1. |:theQuestion=get(sequence)
+
+ 7-13 协作图一一获取下一题

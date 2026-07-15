@@ -1,0 +1,45 @@
+第5章 结构化需求分析方法                          141
+
+明确地定义各种信息项。随着系统规模的增大 ,数据词典的规模和复杂度迅速增加。
+4. Ao Ld FGA
+在数据流图中 ,每一个加工框只简单地写上一个加工名,这显然不能表达“加工?的全部
+内容。随着自顶向下逐层细化,功能越来越具体,加工逻辑也越来越精细。到最底一层,加
+工逻辑详细到可以实现的程度,因此称为"原子加工?或“基本加工”。如果能够写出每一个
+基本加工的全部详细逻辑功能,再自底向上综合,就能完成全部逻辑加工。目前,用于写加
+工逻辑说明的工具有结构化英语.判定表和判定树 。
+在写基本加工逻辑的说明时,应满足如下的要求:
+国 对数据流图的每一个基本加工,必须有一个加工逻辑说明;
+画 加工逻辑说明必须描述基本加工如何把输入数据流变换为输出数据流的加工规则;
+国 加工逻辑说明必须描述实现加工的策略而不是实现加工的细节。
+C1) 结构化英语。
+结构化英语(Structured English)也称为 PDL,是一种介于自然语言和形式化语言之间
+的半形式化语言。它是在自然语言基础上加一些限制因素而得到的语言,使用有限的词汇
+和有限的语句来描述加工逻辑。结构化英语的词汇表由英语命令动词,数据词典中定义的
+名称`有限的自定义词和控制结构关键词 IF_THEN_ELSE, WHILE_DO,REPEAT_UN-
+TIL,CASE_OF 等组成。其动词的含义应具体,尽可能少用或不用形容词和副词。
+语言的正文用基本控制结构进行分割 ,加工中的操作用自然语言短语来表示。其基本
+控制结构有简单陈述句结构.判定结构和重复结构。此外,在书写时,必须按层次横向向右
+移行,续行也同样向右移行,对齐。
+下面是商店业务处理系统中"检查发货票”功能使用结构化英语完成的加工逻辑描述:
+IF the invoice exceeds $ 500 THEN
+IF the account has any invoice more than 60 days overdue THEN
+The confirmation pending resolution of the debt
+ELSE (account is in good standing)
+Issue confirmation and invoice
+ENDIF
+ELSE (invoice equal $500 or less)
+IF the account has any invoice more than 60 days overdue THEN
+Issue confirmation, voice and write message on credit action report
+ELSE (account is in good standing)
+Issue confirmation and invoice
+ENDIF
+ENDIF
+在具体的使用过程当中,除了控制结构关键词使用英语之外,其他的组成部分也可使用
+逻辑表达清晰的中文进行描述。
+IF 发货单金额超过$ 500 THEN
+IF K mx Mat J 60 天 THEN
+在偿还欠坎前不予批准
+ELSE (欠款未超期)
+
+发批准书 ,发货票
+ENDIF

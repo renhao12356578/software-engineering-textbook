@@ -1,0 +1,57 @@
+50                          软件工程模型与方法(第 2 版)
+
+(4) 确定每个阶段内的和迭代计划 ,规划RUP 的4个阶段中每次迭代开发的内容。
+(5) 规划工作流内部结构,用活动图(Activity Diagram)规划工作流中涉及的角色、角
+色负责的活动及产出的工件。
+
+2.4.2 敏捷思想与 XP 方法
+
+传统的生命周期模型将无序的软件开发带人有章可循的时代,很大程度上解决软件危
+机的主要问题。经过 20一30 年的发展历程,随着计算机技术和软件市场需求的不断扩大，
+一些新的问题也在凸显传统方式无法应对的情况 ,尤其是客户和用户对需求不断变化的要
+求和对开发周期大幅度缩短的要求 ,使得大多数软件公司的技术人员疲于应付,甚至导致委
+托方与实施方之间的矛盾且相互不理解,甚至发展到相互对立。
+
+在这种环境下,以及面向对象技术的飞速发展,产生能否运用快速原型的方式来解决上
+述两个主要矛盾的想法 ,并于 2001 年年初美国犹他州雪鸟滑雪胜地 ,一些软件工程咨询性
+质的组织结合在一起,对现存的一些基于变更的软件开发方法进行分类,将其共性归纳出
+来,取名“敏捷?(Agile) ,正式成立敏捷联盟 (http://www. agilealliance. org/) ,并共同起草
+了敏捷宣言(http://www. agilemanifesto. org) 。
+
+敏捷建模(Agile Modeling,AM)是由 Scott W. Ambler 从许多的软件开发过程实践中
+归纳总结出来的一些建模价值观`.原则和实践等组成的。它只是一种态度,不是一个说明性
+过程;它描述一种建模风格 ,用于实际开发环境中能够提高开发质量和效率,同时能够避免
+过度简化和不切实际的期望。AM 已有生命周期模型的补充,本身不是一个完整的方法论。
+在应用传统的生命周期模型时可以借鉴 AM 的过程指导思想,将主要焦点置于建模过程
+上 ,然后才是文档,而不过度建模,过度编制文档。AM 思想有以下 7 种具体的体现方法 :
+
+¢ Extreme Programming( XP) ;
+
+¢ Scrum;
+
+* Crystal Methods;
+
+e FDD (Feature-Driven Development) ;
+
+¢ ASD (Adaptive Software Development) ;
+
+¢ DSDM (Dynamic System Development Methods) ;
+
+。 RUP.
+
+1. 敏捷宣言(Manifesto for Agile Software Development)
+
+We are uncovering better ways of developing software by doing it and helping others
+do it. Through this work we have come to value:
+
+Individuals and interactions over processes and tools
+
+Working software over comprehensive documentation
+
+Customer collaboration over contract negotiation
+
+Responding to change over following a plan
+
+That is. while there is value in the items on the right, we value the items on the left
+
+more,

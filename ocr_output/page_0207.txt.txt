@@ -1,0 +1,52 @@
+第7章 面向对象设计方法                          197
+
+容器对象 theTestPapers。
+
+当 mainWindow 获取到考卷后,创建罗列考卷的窗口对象 showTestPaperWindow,并
+将考卷对象容器 theTestPapers 和控制器对象传送给 showTestPaperWindow。后者从容器
+theTestPapers 中依次获取考卷对象 testPaper,将考卷对应的课程名显示到窗口上。
+
+3. 对象设计:selectTestPaper(CcourseName:string)
+
+selectTestPaper 操作的契约如表 7-6 所示。
+表 7-6 selectTestPaper 操作的契约
+
+操作                             select TestPaper(courseName: string) ,选择一份考卷
+交叉引用                用例 :考试
+
+前置条件           窗口已经列出所有可选择的试卷
+
+后置条件            一份考卷实例与考生建立“关联”
+
+实现该操作的协作图如图 7-9 所示 。
+
+考卷列表
+~--- He|          _
+数据库
+actionPerformed
+学生       (actionEvent)       |
+3:create(controller)
+1:the TestPaper=get()      .KUI》          一-一          wp
+一        showTestPaper                           fs
+Window                          ExamLogon
+|  2:setTestPaper(the TestPaper)
+r
+theTestPapers:                  controller:
+TestPaper           一                 TakeTestController
+
+图 7-9 协作图一一选择一份考卷
+学生在窗口上选择一份考卷,则对象 showTestPaperWindow 首先通过消息 1 得到对
+应的考卷对象 theTestPaper,然后通过消息 2 将考卷对象传递给控制器对象 controller, 最
+后创建考卷登录窗口。该窗口要求学生输入考试密码,进行验证。
+4. 对象设计:logonTestPaperCpwd:string)
+
+logonTestPaper 操作的契约如表 7-7 ras.
+表 7-7 logonTestPaper 操作的契约
+
+操作      logonTestPaper( pwd; string) ,验证输入的考试密码和考卷要求的密码是否一臻
+交叉引用             用例:考试
+
+前置条件         考生已经选择一份考卷
+
+fa RAE             无;考卷实例的某些信息被修改(记录该考卷实例的考生信息)
+

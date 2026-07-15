@@ -1,0 +1,53 @@
+154                         软件工程模型与方法(第 2 版)
+
+6.6.3 模块的独立性
+
+1978 年,Glenford J. Myers® 在 Composite/structured design 一书中提出了"模块独立
+性”的概念,即模块间的内聚和模块的耦合。Larry Constantine@ 将模块的内聚和耦合分别
+建立 7 个度量准则。功能独立性是抽象 .模块化和信息隐藏的直接产物。如果一个模块能
+够独立于其他模块被编程`测试和修改,而和软件系统中其他模块的接口是简单的,则该模
+块具有功能独立性。
+
+模块的耦合(Module Coupling) :耦合是模块之间相对独立性(互相连接的紧密程度)的
+度量。模块之间的连接越紧密,联系越多 ,耦合性越高 ,而其模块独立性越弱。
+
+模块的内聚(Module Cohesion) :内聚是模块功能强度(一个模块内部各个元素披此结
+合的紧密程度)的度量。一个模块内部各个元素之间的联系越紧密,则它的内聚性越高;它
+与其他模块之间的耦合性减低,而模块独立性越强。因此,模块独立性比较强的模块应是高
+Py RRA AY BER
+
+1. 模块的内聚性
+
+内聚是模块功能强度的度量 ,用于表示一个模块内部各元素彼此结合的紧密程度。无
+论是结构化,还是面向对象的程序 ,一个模块(或是一个类)内部的功能具有相同或相似的目
+的,可以认为该模块(类)具有较高的内聚性。在理想情况下 ,一个内聚程度高的模块应当只
+负责一件事,比如拷贝(Copy)功能。一般模块的内聚性分为七种类型,如图 6-3 所示。
+
+高                 内桶性                低
+功能内聚 | 信息内聚| 通信内聚 | 过程内聚| 时间内聚 | 逻辑内聚 | 巧合内聚
+强               模块独立性               弱
+功能单一                              功能分散
+
+图 6-3 模块的内聚度量
+
+模块的内聚性是系统模块化设计中的一个关键因素,希望一个模块的内聚程度越高越
+好。通过图 6-3 可以看到,位于高端的几种内聚类型最好,位于中段的几种内聚类型是可以
+接受的,但位于低端的内聚类型很不好 ,一般不建议使用。模块的内聚性还可能由于以下两
+种情况而降低 :
+
+。 模块(或类)中定义多种不同用途的方法,且这些方法之间不具备共性;
+
+© 模块(类)中的方法产生许多不同的输出结果,并且使用一些粗粒度和无关系的数据
+
+@ Glenford Myers (born on December 12, 1946) is an American computer scientist, entrepreneur, and author. He
+founded two successful high-tech companies (RadiSys and IP Fabrics) , authored eight textbooks in the computer sciences,
+and made important contributions in microprocessor architecture. He holds a number of patents, including the original pa-
+tent on "register scoreboarding" in microprocessor chips. He has a BS in electrical engineering from Clarkson University,
+an MS in computer science from Syracuse University, and a PhD in computer science from the Polytechnic Institute of
+New York University.
+
+@ Larry LeRoy Constantine (pronounced Constanteen; born in 1943) is an American software engineer and profes-
+sor in the Mathematics and Engineering Department at the University of Madeira Portugal, who is considered one of the
+pioneers of computing. He has contributed numerous concepts and techniques forming the foundations of modern practice
+
+in software engineering and applications design and development.

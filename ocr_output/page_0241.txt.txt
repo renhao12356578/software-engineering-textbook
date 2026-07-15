@@ -1,0 +1,43 @@
+第8章 结构化设计方法                           231
+
+从上例可以看到,PDL 具有正文格式,很像一个高级语言,可以很方便地使用计算机完
+成PDL 的书写和编辑工作。
+PDL 作为一种用于描述程序逻辑设计的语言,具有以下特点:
+© 有固定的关键字外语法 ,提供全部结构化控制结构数据说明和模块特征。属于外
+语法的关键字是有限的词汇集 ,它们能对 PDL 正文进行结构分割 ,使之变得易于理
+解。为了区别关键字 ,规定关键字一律大写 ,其他单词一律小写 。
+。 内语法使用自然语言来描述处理特性。内语法比较灵活,写清楚即可,不必考虑语
+法错,以利于人们可把主要精力放在描述算法的逻辑上。
+。 有数据说明机制,包括简单(如标量和数组)的与复杂(如链表和层次结构)的数据
+结构 。
+。 有子程序定义与调用机制,用以表达各种方式的接口说明。
+使用 PDL ,可以逐步求精:从比较概括和抽象的 PDL 程序开始,逐步写出更详细.更精
+确的描述。下面给出上面例子中该功能实现的四个步骤如何实现的细化过程，
+     PROCEDURE spel1-check
+BEGIN
+//split document into single words
+LOOP get next word
+add word to word list in sort-order
+EXIT WHEN all words processed
+END LOOP
+//l1ook up words in dictionary
+LOOP get word from word list
+IF word not in dictionary THEN
+//display words not in dictionary
+display word,prompt on user terminal
+IF user response says word OK THEN
+add word to good word list
+ELSE
+add word to bad word list
+ENDIF
+ENDIF
+EXIT WHEN all words processed
+END LOOP
+//create a new words dictionary
+dictionary ; = merge dictionary and good word list
+
+END spell check
+
+8.9 界面设计的原则
+
+软件界面不仅是软件系统功能体现最直接的表现方式,也是验证用户需求与功能实现

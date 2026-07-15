@@ -1,0 +1,52 @@
+198
+
+软件工程模型与方法(第 2 版)
+
+实现该操作的协作图如图 7-10 fran
+
+1 .2:eligible=equal(pwd,realPwd)
+
+学生     EO  |  |-eligible=logonTestPaper( pwd)  夯
+: «Ul»                           controller:
+testPaperLogon                                               TakeTestController
+2:[eligible=true]                              |   1. l-realPwd=getPwd()
+create(controller)
+theTestPaper:
+TestPaper
+: «UI»
+testPaper
+Window
+
+口 ,以处理后续的系统事件。
+5. 对象设计:startTest()
+
+ 7-10 协作图一一验证试卷密码
+
+学生输入考试密码后,触发系统事件 logonTestPaper。选择由控制器 controller 来接
+收并处理该事件。controller 接收到 logonTestPaper 消息后 ,首先从当前考卷对象 theTest-
+Paper 中得到真正的考卷密码,然后和学生输入的密码进行比对。testPaperLogon 窗口被
+告知输入的是正确的密码,则创建考卷窗口 TestPaperWindow,并将 controller 传递给该窗
+
+startTest 操作的契约如表 7-8 所示。
+
+表 7-8 startTest 操作的契约
+
+操作                                  startTest() ,开始考试
+交叉引用              用例:考试
+前置条件              一个考卷实例 .一个考生实例 .若干个考题规格说明实例已经创建
+(1) 一个考试实例被创建
+(2) 考试实例和考卷实例形成关联
+(3) 一个考卷生成规则实例被创建
+(4) 考卷生成规则实例和考试实例形成关联
+(5) 若干个考卷生成规则项实例被创建
+后置条件               (6) 考卷生成规则项实例和考卷生成规则实例建立关联
+
+(7) 若干个考题子类的实例被创建(根据考卷生成规则)
+(8) 考题子类的实例和考卷实例形成关联(关联的形成)
+
+(9) 一个考题子类的实例和一个考题规则说明的实例形成关联(关联的形
+
+成,用于从考题规格说明里得到题目描述信息)
+(10) 考试的时间信息被记录
+
+实现该操作的协作图如图 7-11 所示。

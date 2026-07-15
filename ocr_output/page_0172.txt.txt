@@ -1,0 +1,58 @@
+162                        软件工程模型与方法(第 2 版)
+
+另一个违反 SRP 的例子如图 6-16 所示。Employee 类包含了 CalculatePay(计算工资)
+和 Store(将 Employee 对象持久化)两个职责,其中前一个
+职责和具体业务规则相关,后一个职责是持久化相关的,和
+具体业务规则无关。这两个职责在大多数情况决不应该混             Samo
+合。因为业务规则往往频繁变化 ,而持久化的方式却不会如
+此频繁变化,并且变化的原因也是完全不同的,把业务规则 图6-16 被看合在一起的持久化职责
+和持久化绑定在一起的做法是自讨苦吃。应该将对 Em-
+ployee 的持久化职责分配给另一个类。
+
+6.7.2 开闭原则
+
+软件实体(类 模块.函数等)应该可以扩展,但不可修改。
+
+如果程序中的一处变化产生连锁反应 ,导致一系列相关模块的变化,那么这种设计不够
+灵活 。应用开闭原则(COpen Closed Principle, OCP) 原则设计出的模块具有两个主要的特
+征 ,它们是:
+
+。 对于“扩展?是开放的(Open for extension) 。这说明模块的行为是可以扩展的。妆
+
+需求改变时,对模块进行扩展,以满足需求的变化。
+
+。 对于“和更改?是封闭的(Close for modification) 。其含义是对模块行为进行扩展时，
+
+不必改动客户端模块的源代码或者二进制代码。
+这两个特征似乎相互矛盾。扩展模块行为的通常方式就是修改该模块的源代码。怎么
+可能在对模块进行扩展后无须改动客户端模块的源代码呢?
+
+先考察图 6-17 的例子。类 ContactManager 中的方法 getContactMech 接收一个对象，
+返回联系方式。由于对象可能是 Phone 的对象,也可能是 Email 的对象,因此在 getCon-
+tactMech 方法体里判断参数类型 ,从而决定返回电话号码还是 Email 地址。如果再增加其
+他新的通信方式,例如传真(Fax),则 getContactMech 的方法体里还须加入针对 Fax 的处
+理代码。因此,通信类的扩展对客户端类 ContactManager 来说是不封闭的,须修改 Con-
+tactManager 的代码。
+
+二 coertactManager                               public String getContactmech(Object ojf                 >
+Gq contactmech
+
+#5 getContactMech ()
+
+if (0 instance of Email)
+
+return{(Emailjo), getAddress();
+
+i                                   else iFo instance of Phone)
+v
+加 Ph                                 a Emai                 return((Phone }o).getNumber();
+jm number                            Eg address                     else
+Sq username                         Gq Username
+@& getNumber()                   @ getAddress()            return nal
+@; Phone()                 @ Email ()             }
+
+图 6-17 不符合 OCP 的设计
+
+如何能在扩展模块功能(如增加 Fax 类)的同时不修改类 ContactManager 的代码? 关
+键是抽象。通过抽象 ,可以发现类 Phone 和Email 存在共同的行为,即都向 ContactManag-
+er 类提供联系方式;但提供联系方式这个共同行为的实现方法又有所不同,一个提供电话

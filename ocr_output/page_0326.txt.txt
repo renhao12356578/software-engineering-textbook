@@ -1,0 +1,61 @@
+316                          软件工程模型与方法(第 2 版)
+[ =: soe |                         | :Am |
+BP] 取款 |
+Q a=: gars                     目: am
+|                                          |
+i                                          1
+i             l:insert_card               1
+1
+1
+|
+1
+|                 4 insert_card
+i站 |
+|                                          |
+al     |               ]:input_pwd                 |
+[pwd=t]   H
+1
+1               2:input_pwd
+ini
+|                                          1
+                                          |
+1                                          i
+1                                          1
+[pwd=t]   |                                          |
+1                                          i
+T
+循环上 |                                          |
+|             T:input_pwd               1
+121 |
+1
+1                 2-input_pwd
+L
+\                                          1
+|                                          1
+|               3:terminate                  |
+火                                         |
+1
+|
+|
+上
++                                         L
+
+3. 操作契约
+
+// 针对每个基本用例的系统顺序图上出现的系统事件,结合并参考领域模型的结果，
+给出每个系统事件为了能够得到约定的返回值,说明系统事件作用于领域模型中概念类的
+三种操作:〇@对象的创建或删除;@对象之间的关联建立或者删除;@@对象属性值的修改。
+
+系统事件名称               用例                  参数说明
+1. No. :int;
+1. insert_card(No. , Bankid)           取款                2. Bankid;int;
+3. Bankname: string;
+2. input_pwd( pwd)            验证密码                   1.
+1.
+3
+2.
+4
+§
+
+6
+

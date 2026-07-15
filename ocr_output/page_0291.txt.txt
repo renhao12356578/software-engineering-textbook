@@ -1,0 +1,53 @@
+第 10 章 ”软件测试                             281
+
+> TestQuest: TestQuest 公司用于 Windows 系统和一些PDA 移动设备上的GUI测试
+工具。
+(4) 负载性能测试工具。
+> PerformanceStudio: Rational 公司的产品,用于电子商务系统、ERP 系统和 C/S 应用
+的负载.强度和多客户的测试,允许无编程环境下的多机同步测试。
+
+> LoadRunner:HP 公司的产品,适用于企业级应用,根据客户要求创建虚拟客户 ,进行
+负载测试,有性能报表功能,最多可以模拟成千上万的客户,支持 Oracle, SQL Server 等多
+种主流数据库 ,操作复杂。
+
+> QALoad:Compuware 公司的产品,和 LoadRunner 类似,虚拟客户有上限 ,操作相对
+简单 ,脚本可以调试,可生成报告 。
+
+> WebLoad:Rebadiew 公司的产品,是一款强大的专业网站性能测试工具,虚拟客户数
+量理论上没有上限 ,脚本语言为 JavaScript。
+
+> Visual Qualitify:Rational 公司的性能测试工具。
+
+(5) Web 测试工具。
+
+> SilkTest,SilkPerfomer,Surf :SilkTest 使用 Segue 的广义测试结构,提供保证 Inter-
+net 和 Intranet 稳定的功能测试和回归测试;SilkPerfomer 仿真实际 Web 消息流,测量 Web
+服务器的容量和能力;Surf 用于功能回归测试。
+
+> Web Application Stress:微软的 Web 压力测试软件。
+
+> Webqulify:专门用于 JavaScript 应用的 Web 测试工具。
+
+> Watchfire:可以自动分析、测试和报告 Web 站点的质量.特性和可用的 Web 测试
+工具。
+
+(6) 缺陷跟踪工具。
+
+> Rational ClearQuest\Compuware 公司的 TrackRecord 免费跟踪软件 SilkRadar 等
+都是常用的缺陷跟踪工具,它们都允许客户通过 Web 方式访问,有利于不同地点,甚至跨国
+的开发团队间的缺陷管理;通过 SQL 语句可以得出跟踪的各种统计信息 。
+
+10.6 软件的可靠性
+
+软件测试的目标是消除错误 ,提高软件的可靠性,那么什么是软件的可靠性? 如何衡量
+软件的可靠性? 这节讨论软件可靠性的问题。
+
+10.6.1 基本概念
+
+在衡量一个软件系统时,一般用“可用性”和“可靠性?两个指标来衡量它的优劣程度。
+所谓软件可用性指程序在给定的时间点 ,按照需求规格说明书的规定,成功运行的概率。软
+件的可靠性指程序在给定的时间间隔内 ,按照需求规格说明书的规定,成功运行的概率。可
+靠性和可用性之间的主要差别是可靠性关注在 0~:: 间隔内系统没有失效,而可用性只关注
+FEW Al 二系统是正常运行的。
+
+按照 IEEE 的规定,术语“错误”的含义是由开发人员造成的软件差错, 而术语“故障”的

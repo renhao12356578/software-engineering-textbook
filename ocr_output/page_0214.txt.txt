@@ -1,0 +1,49 @@
+204                         软件工程模型与方法(第 2 版)
+
+}
+private IMapper getMapper(Class entityClass)
+{
+IMapper mapper = null;
+Class mapperClass;
+mapperClass = (Class) mapperContainer. get(entityClass) ;
+if (mapperClass! = null) {
+try(
+mapper = (IMapper) mapperClass. newInstance() ;
+}catch(Exception e) {
+
+System. err. println(e. getMessage()) ;
+
+}
+
+return mapper;
+
+public boolean insert(Object obj,Class class) {
+private IMapper mapper;
+mapper = getMapper(class) ;
+if(mapper ! = null)
+return mapper. insert(obj) ;
+else
+return false;
+}
+/7其他代码省略
+}
+
+使用 Java 语言书写 StudentMapper 类的部分代码如下 :
+public class StudentMapper implements IMapper{
+public boolean insert(Object obj) {
+Student theStudent = (Student) obj;
+Stringsql = insertinto student (STUDENT_ID,PASSWORD,NAME,SEX,SCHOOL ID,CLASS ID,GRADE) values¢";
+sql + =theStudent . getStudentID() + """;
+sql + =theStudent , getPassword() + ",";
+sql + = theStudent .getName() + "-,";
+sql + =theStudent .getSex() + ".";
+sql + =theStudent .getSchoolID() + ",-";
+sql + =theStudent .getClassID() +",-";
+sql + =theStudent .getGrade() +")";
+Connection conn = DBConn. getConnection() ;
+try{
+Statement stat = conn. createStatement();
+int num = stat. executeUpdate(sq1) ;
+if(num= = 1){
+
+return true;

@@ -1,0 +1,18 @@
+# === 原始扫描与页面拆分（体积过大，不入库）===
+sw.pdf
+pages_300dpi/
+
+# === 构建产物 PDF ===
+软件工程报告/main.pdf
+软件工程报告/软件工程报告_完整版.pdf
+软件工程报告/ch*.pdf
+软件工程报告/appendix*.pdf
+
+# === 图片备份目录（与 img/ 内容重复）===
+软件工程报告/img_backup/
+
+# === macOS ===
+.DS_Store
+
+# === Typst 本地缓存 ===
+.typstunicode-cache/
