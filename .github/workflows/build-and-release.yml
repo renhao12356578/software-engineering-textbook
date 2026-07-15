@@ -37,6 +37,7 @@ jobs:
 
       - name: Convert images to grayscale
         run: |
+          pip install Pillow
           echo "图片体积（转换前）："
           du -sh 软件工程报告/img
           python3 -c "
