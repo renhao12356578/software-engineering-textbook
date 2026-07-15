@@ -19,16 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-NOTE: The MIT License above applies ONLY to the typesetting code layer of this
-project — namely the Typst source files (main.typ, imports.typ, template.typ,
-chapter layout files under chapters/*.typ) and the build/CI configuration
-(.github/workflows, .gitignore).
-
-The textual content and images of the book «软件工程模型与方法（第 2 版）»
-(authors: 肖丁, 傅佳鹏; publisher: 北京邮电大学出版社) are NOT covered by this
-license. They remain the copyrighted material of their respective authors and
-publisher, and are included here solely for personal study and non-commercial
-use. See README.md for the full layered licensing statement.
