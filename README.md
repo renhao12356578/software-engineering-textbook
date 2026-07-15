@@ -87,17 +87,7 @@ git push origin v0.2.0
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-### 添加贡献者
-
-PR 合并后，任何协作者都可以通过 Issue 评论召唤 bot 将贡献者加入此列表：
-
-```
-@all-contributors please add @github-username for code doc review
-```
-
-可用的贡献类型：`code` `doc` `design` `review` `bug` `ideas` `content` `infra` `tutorial` 等。
-
-（仅仓库管理员和合并 PR 的人可以发此指令，bot 会自动追加到 README 并提交）
+PR 被合并后，GitHub Action 会自动将 PR 作者追加到此列表（含对应贡献徽章），无需手动操作。
 
 ---
 
