@@ -1,0 +1,72 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Noto CJK fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
+
+      - name: Install Typst
+        run: |
+          version=v0.14.2
+          curl -fsSL "https://github.com/typst/typst/releases/download/${version}/typst-x86_64-unknown-linux-musl.tar.xz" -o /tmp/typst.tar.xz
+          tar -xf /tmp/typst.tar.xz -C /tmp
+          install -m 0755 "/tmp/typst-x86_64-unknown-linux-musl/typst" "$HOME/.local/bin/typst"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Verify toolchain
+        run: |
+          typst --version
+          # 确认正文/标题所需的中文字体可被 Typst 命中
+          typst fonts --font-path /usr/share/fonts | grep -E "Noto Sans CJK SC|Noto Serif CJK SC" | sort -u
+
+      - name: Build PDF
+        working-directory: 软件工程报告
+        run: |
+          typst compile --font-path /usr/share/fonts main.typ "../软件工程模型与方法（第 2 版）.pdf"
+
+      - name: Show output
+        run: ls -lh "软件工程模型与方法（第 2 版）.pdf"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: "软件工程模型与方法（第 2 版）.pdf"
+          if-no-files-found: error
+          retention-days: 30
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: pdf
+          path: dist
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.pdf
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          body: |
+            自动构建自 tag `${{ github.ref_name }}`。
+
+            附件为已编译的完整 PDF，可直接下载阅读。
