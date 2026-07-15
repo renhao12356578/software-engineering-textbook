@@ -35,6 +35,25 @@ jobs:
           # 确认正文/标题所需的中文字体可被 Typst 命中
           typst fonts --font-path /usr/share/fonts | grep -E "Noto Sans CJK SC|Noto Serif CJK SC" | sort -u
 
+      - name: Convert images to grayscale
+        run: |
+          echo "图片体积（转换前）："
+          du -sh 软件工程报告/img
+          python3 -c "
+          from PIL import Image
+          import os, glob
+          imgs = glob.glob('软件工程报告/img/*.png')
+          for p in imgs:
+              img = Image.open(p)
+              if img.mode != 'L':
+                  img.convert('L').save(p, optimize=True)
+              else:
+                  img.save(p, optimize=True)
+          print(f'{len(imgs)} 张图片已转灰度')
+          "
+          echo "图片体积（转换后）："
+          du -sh 软件工程报告/img
+
       - name: Build PDF
         working-directory: 软件工程报告
         run: |
