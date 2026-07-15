@@ -3,7 +3,7 @@
 > 《软件工程模型与方法（第 2 版）》—— 肖丁、傅佳鹏 编著，北京邮电大学出版社
 > 本仓库将全书由扫描 PDF 重新排版为 [Typst](https://typst.org) 源码，可自动编译为带书签、目录的完整 PDF。
 
-[![Build and Release](https://github.com/renhao12356578/software-engineering-textbook/actions/workflows/build-and-release.yml)](https://github.com/renhao12356578/software-engineering-textbook/actions/workflows/build-and-release.yml)
+[![Build and Release](https://github.com/renhao12356578/software-engineering-textbook/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/renhao12356578/software-engineering-textbook/actions/workflows/build-and-release.yml)
 [![Release](https://img.shields.io/github/v/release/renhao12356578/software-engineering-textbook)](https://github.com/renhao12356578/software-engineering-textbook/releases)
 
 ---
