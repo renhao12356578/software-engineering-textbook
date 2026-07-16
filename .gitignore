@@ -16,3 +16,6 @@ pages_300dpi/
 
 # === Typst 本地缓存 ===
 .typstunicode-cache/
+
+# === Claude 工作区 / 临时文件 ===
+.claude/
