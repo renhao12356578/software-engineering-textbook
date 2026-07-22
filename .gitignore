@@ -19,3 +19,5 @@ pages_300dpi/
 
 # === Claude 工作区 / 临时文件 ===
 .claude/
+# === tesseract 重跑 OCR（本地对照用）===
+ocr_tesseract/
