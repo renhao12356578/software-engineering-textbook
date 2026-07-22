@@ -42,7 +42,7 @@
 面向对象设计主要包括三方面的工作：软件体系结构设计、用例实现方案设计和用户界面设计，如图 7-1 所示。其中，软件体系结构框架的设计在通常情况下首先参考常用和成型的框架结构，其次考虑软件需求中有关核心业务用例的要求，通过 1～2 次迭代过程证明所选择软件体系结构框架的技术可行性。在此基础上，根据确定的框架结构针对其他用例进行软件设计模型的动态结构设计，并在所有动态结构设计的基础上确定软件模型的静态结构。用户界面设计和其他两项工作之间无明显的先后次序关系，这部分对于具体的软件系统开发而言非常重要，甚至于提前至软件需求分析阶段，用于明确用户都无法确定的需求，但是作为软件工程而言，这部分并非本书的重点。
 
 #figure(
-  image("img/fig_7_1.png", width: 80%),
+  image("../img/fig_7_1.png", width: 80%),
   caption: [面向对象设计过程],
 ) <fig-7-1>
 
@@ -62,7 +62,7 @@
 - 持久化层对象的主要用途是永久存储、检索、更新和删除对象的能力，使底层的存储技术不暴露出来。最后，系统管理类为软件体系结构提供操作系统相关的功能，通过包装特定于操作系统的特性，使软件与操作系统分离，这样增加应用的可移植性。
 
 #figure(
-  image("img/fig_7_2.png", width: 80%),
+  image("../img/fig_7_2.png", width: 80%),
   caption: [基于面向对象的软件分层结构],
 ) <fig-7-2>
 
@@ -176,7 +176,7 @@
 由于该系统有 20 个用例，每一个用例又有多个系统事件，如果采用方案(1)，将得到一个异常臃肿的外观控制器。因此选择一个用例对应一个控制器的方案，如选择 LogonController 作为登录用例的控制器，TakeTestController 作为考试用例的控制器。控制器接收到系统事件后，再委托相关的业务逻辑层对象进行处理，其本身只起协调和委派的作用，如图 7-3 所示。
 
 #figure(
-  image("img/fig_7_3.png", width: 80%),
+  image("../img/fig_7_3.png", width: 80%),
   caption: [考试用例的控制器对象],
 ) <fig-7-3>
 
@@ -196,7 +196,7 @@
 示例：在在线考试系统中，哪个类负责产生考卷生成规则项的实例？根据创建者模式，应该寻找类聚合或者包含许多考卷生成规则项的实例。考虑如图 7-4 所示的部分领域模型，因为考卷生成规则聚合考卷生成规则项对象，因此考卷生成规则类是创建考卷生成规则项实例很好的候选者。
 
 #figure(
-  image("img/fig_7_4.png", width: 80%),
+  image("../img/fig_7_4.png", width: 80%),
   caption: [在线考试系统的部分领域模型],
 ) <fig-7-4>
 
@@ -219,7 +219,7 @@
 例如，设想正开始着手进行设计，当前根本没有或者只有一个很小的设计模型，所以须查看领域模型寻找信息专家。为得到一份考卷的总得分，须知道哪些信息？必须知道这份考卷有哪些类型的题及其得分。通过查看如图 7-5 所示的部分领域模型，其中的概念类考卷具有信息专家的职责，它知道属于这份考卷的所有类型考题，为此参考这个概念类，在设计模型中加入一个软件类，命名为 TestPaper，并且给这个类分配获取总得分的职责，这个职责通过取名为 getScore 的方法实现。
 
 #figure(
-  image("img/fig_7_5.png", width: 80%),
+  image("../img/fig_7_5.png", width: 80%),
   caption: [在线考试系统的部分领域模型],
 ) <fig-7-5>
 
@@ -246,7 +246,7 @@
 由于一份试卷可能有多道选择题，因此图 7-6 中序号为 1.1 的消息用于从放置选择题的容器 theQuestions 中先获取一道选择题。消息序号旁的星号（\*）表示这是一条迭代消息。图 7-6 右侧是根据职责分配得到的 3 个设计类及其部分操作。注意，职责的实现需要信息，而信息往往分布在不同的对象中，一个任务可能需要多个对象（信息专家）协作来完成。
 
 #figure(
-  image("img/fig_7_6.png", width: 80%),
+  image("../img/fig_7_6.png", width: 80%),
   caption: [计算某份考卷的选择题总得分],
 ) <fig-7-6>
 
@@ -315,7 +315,7 @@ logon 操作的契约如表 7-3 所示。
 实现该操作的协作图如图 7-7 所示。
 
 #figure(
-  image("img/fig_7_7.png", width: 80%),
+  image("../img/fig_7_7.png", width: 80%),
   caption: [协作图——登录系统],
 ) <fig-7-7>
 
@@ -391,7 +391,7 @@ getAvailableTestPapers 操作的契约如表 7-5 所示。
 实现该操作的协作图如图 7-8 所示。
 
 #figure(
-  image("img/fig_7_8.png", width: 80%),
+  image("../img/fig_7_8.png", width: 80%),
   caption: [协作图——显示所有考卷],
 ) <fig-7-8>
 
@@ -421,7 +421,7 @@ selectTestPaper 操作的契约如表 7-6 所示。
 实现该操作的协作图如图 7-9 所示。
 
 #figure(
-  image("img/fig_7_9.png", width: 80%),
+  image("../img/fig_7_9.png", width: 80%),
   caption: [协作图——选择一份考卷],
 ) <fig-7-9>
 
@@ -449,7 +449,7 @@ logonTestPaper 操作的契约如表 7-7 所示。
 实现该操作的协作图如图 7-10 所示。
 
 #figure(
-  image("img/fig_7_10.png", width: 80%),
+  image("../img/fig_7_10.png", width: 80%),
   caption: [协作图——验证试卷密码],
 ) <fig-7-10>
 
@@ -488,7 +488,7 @@ startTest 操作的契约如表 7-8 所示。
 实现该操作的协作图如图 7-11 所示。
 
 #figure(
-  image("img/fig_7_11.png", width: 80%),
+  image("../img/fig_7_11.png", width: 80%),
   caption: [协作图——开始考试],
 ) <fig-7-11>
 
@@ -538,7 +538,7 @@ submitAnswer 操作的契约如表 7-9 所示。
 实现该操作的协作图如图 7-12 所示。
 
 #figure(
-  image("img/fig_7_12.png", width: 80%),
+  image("../img/fig_7_12.png", width: 80%),
   caption: [协作图——提交某道考题的答案],
 ) <fig-7-12>
 
@@ -566,7 +566,7 @@ getNextQuestion 操作的契约如表 7-10 所示。
 实现该操作的协作图如图 7-13 所示。
 
 #figure(
-  image("img/fig_7_13.png", width: 80%),
+  image("../img/fig_7_13.png", width: 80%),
   caption: [协作图——获取下一题],
 ) <fig-7-13>
 
@@ -605,7 +605,7 @@ endTest 操作的契约如表 7-11 所示。
 实现该操作的协作图如图 7-14 所示。
 
 #figure(
-  image("img/fig_7_14.png", width: 80%),
+  image("../img/fig_7_14.png", width: 80%),
   caption: [协作图——结束考试],
 ) <fig-7-14>
 
@@ -622,14 +622,14 @@ endTest 操作的契约如表 7-11 所示。
 负责持久化的各 Mapper 类的职责是相似的，包括新增对象信息到存储介质、从存储介质中删除对象信息、修改对象信息，以及查询对象信息这四类操作。和领域类调用各 Mapper 类实现持久化，按照 DIP 中讨论的依赖抽象原则，可以将这些公共的操作抽取出来形成一个接口 IMapper，如图 7-15 所示。其中，insert 用于将对象写入存储介质，delete 操作用于将符合条件的对象从存储介质中删除，update 操作用于更新对象的信息。这 3 个操作的布尔型返回值用于标识操作是否成功。第 4 个操作是 get，用于从存储介质中读取符合条件的信息，生成并返回一个对象，参数 condition 表示条件。最后一个操作 gets 用于从存储介质中读取符合条件的信息，生成并返回一个或多个对象。
 
 #figure(
-  image("img/fig_7_15.png", width: 80%),
+  image("../img/fig_7_15.png", width: 80%),
   caption: [IMapper 接口],
 ) <fig-7-15>
 
 每一个负责领域类持久化的类实现 IMapper 接口。那么，谁维护领域类和负责其持久化的对应 Mapper 类之间的对应关系，使得待持久化一个特定的领域对象时能找到相应的负责持久化的对象？在此创建一个名为 DBFacade 的类承担该职责，如图 7-16 所示。同时，该类作为持久化层对外的统一服务窗口。其他层为调用持久化层的服务，只能通过调用 DBFacade 类提供的操作来实现，这样就对持久化层进行封装，以简化其他层对持久化层的访问方法。因此，对应于 IMapper 中的 5 个操作，DBFacade 提供对应的 5 个操作，其中类型为 Class 的参数用于接收待持久化领域对象对应的类，从而让 DBFacade 可以确定对应的 Mapper 对象。DBFacade 的另一个私有操作用于根据领域类获取对应的 Mapper 对象，这些对象预先存放在 mapperContainer 容器中。同时，将数据库之间连接建立和释放的职责交给类 DBConnection，各个 Mapper 调用 DBConnection 提供的功能实现和数据库之间连接的建立和释放。这样可以满足单一职责原则，也满足易变部分和稳定部分分离的原则。因为使用不同的关系数据库时，主要是建立数据库连接部分有一些不同，其他实现增删改查的 SQL 语句是基本一样的。
 
 #figure(
-  image("img/fig_7_16.png", width: 80%),
+  image("../img/fig_7_16.png", width: 80%),
   caption: [持久化层设计类],
 ) <fig-7-16>
 
@@ -640,7 +640,7 @@ endTest 操作的契约如表 7-11 所示。
 图 7-17 是新增一个学生对象的协作图。当业务/领域对象或者控制器/处理对象调用持久化层的服务时，首先向 DBFacade 对象发送 insert 消息，消息中第一个参数 theStudent 是待持久化的 Student 对象的引用，第二个参数 Student 是待持久化的领域对象所属的类名。DBFacade 接收到该条消息后，首先向自身发消息 getMapper 来获取负责对类 Student 的对象进行持久化的对象 theStudentMapper，然后向 theStudentMapper 对象发送 insert 消息，让其将 theStudent 对象持久化到存储介质。theStudentMapper 对象对应的类为 StudentMapper。
 
 #figure(
-  image("img/fig_7_17.png", width: 80%),
+  image("../img/fig_7_17.png", width: 80%),
   caption: [新增一个对象的协作图],
 ) <fig-7-17>
 
@@ -715,22 +715,22 @@ public class StudentMapper implements IMapper {
 图 7-18 至图 7-21 分别是针对 DBFacade 中另外 4 个操作的协作图。这 4 个操作对应的方法和 insert 操作相似。
 
 #figure(
-  image("img/fig_7_18.png", width: 80%),
+  image("../img/fig_7_18.png", width: 80%),
   caption: [删除一个对象的协作图],
 ) <fig-7-18>
 
 #figure(
-  image("img/fig_7_19.png", width: 80%),
+  image("../img/fig_7_19.png", width: 80%),
   caption: [更新一个对象的协作图],
 ) <fig-7-19>
 
 #figure(
-  image("img/fig_7_20.png", width: 80%),
+  image("../img/fig_7_20.png", width: 80%),
   caption: [查询一个对象的协作图],
 ) <fig-7-20>
 
 #figure(
-  image("img/fig_7_21.png", width: 80%),
+  image("../img/fig_7_21.png", width: 80%),
   caption: [查询多个对象的协作图],
 ) <fig-7-21>
 
@@ -767,7 +767,7 @@ public class StudentMapper implements IMapper {
 用户界面层包括 5 个类：mainLogon、mainWindow、showTestPaperWindow、TestPaperLogon 和 TestPaperWindow，如图 7-22 所示。其中，mainLogon 对应主登录界面；mainWindow 对应登录后的主窗口；后面三个类和考试用例相关，分别对应罗列学生能参加所有考试的界面、考卷登录界面和考试界面。版型 \<\<UI\>\> 用于指示这是用户界面层的类。
 
 #figure(
-  image("img/fig_7_22.png", width: 80%),
+  image("../img/fig_7_22.png", width: 80%),
   caption: [用户界面层类图],
 ) <fig-7-22>
 
@@ -778,7 +778,7 @@ public class StudentMapper implements IMapper {
 如图 7-23 所示，控制器层有两个类，分别为 LogonController 和 takeTestController，分别作为用户登录用例和考试用例的控制者。
 
 #figure(
-  image("img/fig_7_23.png", width: 80%),
+  image("../img/fig_7_23.png", width: 80%),
   caption: [控制器/处理层类图],
 ) <fig-7-23>
 
@@ -789,7 +789,7 @@ public class StudentMapper implements IMapper {
 如图 7-24 所示，领域层的类有：Student（学生）、TestPaper（考卷）、Question（考题）、Test（考试）、Rule（考卷生成规则）、RuleItem（考卷生成规则项）、QuestionCatalog（考题规格说明目录）和 QuestionSpecification（考题规格说明）。其中，Question 类是抽象类，它还有一系列代表选择题、填空题等的子类，为保持图简洁，未在本图中画出。
 
 #figure(
-  image("img/fig_7_24.png", width: 80%),
+  image("../img/fig_7_24.png", width: 80%),
   caption: [领域层类图],
 ) <fig-7-24>
 
@@ -798,7 +798,7 @@ public class StudentMapper implements IMapper {
 如图 7-25 所示，持久层除了类 DBFacade 和 DBConnection，以及接口 IMapper 之外，还有 8 个 Mapper 类的子类，它们分别负责对对应领域类的持久化。
 
 #figure(
-  image("img/fig_7_25.png", width: 80%),
+  image("../img/fig_7_25.png", width: 80%),
   caption: [持久层类图],
 ) <fig-7-25>
 

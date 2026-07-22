@@ -112,7 +112,7 @@ Winston Royce（1929—1995年）就学于California Institute of Technology并�
 瀑布模型规定软件生命周期提出的一些基本工程活动，并且规定它们自上而下、相互衔接的固定次序，如同瀑布流水，逐级下落，如图2-2所示。
 
 #figure(
-  image("../img/fig_2_2.png", width: 65%),
+  image("../img/fig_2_2.png", width: 50%),
   caption: [基本的瀑布模型],
 ) <fig-waterfall-basic>
 
@@ -126,7 +126,7 @@ Winston Royce（1929—1995年）就学于California Institute of Technology并�
 从瀑布模型特征4）可知，各项活动的组织次序并非完全是自上而下的瀑布线性图式，而是在软件未确认时回归，如图2-3所示。
 
 #figure(
-  image("../img/fig_2_3.png", width: 65%),
+  image("../img/fig_2_3.png", width: 50%),
   caption: [具有返工过程的瀑布模型],
 ) <fig-waterfall-rework>
 
@@ -224,7 +224,7 @@ Winston Royce（1929—1995年）就学于California Institute of Technology并�
 喷泉模型（Fountain Model）也称为迭代模型，如图2-10所示。
 
 #figure(
-  image("../img/fig_2_10.png", width: 45%),
+  image("../img/fig_2_10.png", width: 20%),
   caption: [喷泉模型示意图],
 ) <fig-fountain>
 
@@ -277,7 +277,7 @@ Winston Royce（1929—1995年）就学于California Institute of Technology并�
 针对瀑布模型这个缺点，20世纪80年代后期Paul Rook提出V模型，如图2-12所示。
 
 #figure(
-  image("../img/fig_2_12.png", width: 65%),
+  image("../img/fig_2_12.png", width:40%),
   caption: [V模型示意图],
 ) <fig-vmodel>
 
@@ -295,7 +295,11 @@ Winston Royce（1929—1995年）就学于California Institute of Technology并�
 V模型虽然强调测试阶段的重要作用（对测试进行分级，并和开发阶段相对应），但它保留了瀑布模型的缺点，即将测试作为一个独立的阶段，所以并没有提高模型抵抗风险的能力。为了尽早发现分析与设计的缺陷，必须将测试广义化，即扩充确认（Validation）和验证（Verification）内容，并将广义的测试作为一个过程贯穿整个软件生命周期。基于这个出发点，Evolutif公司在V模型的基础上提出W模型，如图2-13所示。
 
 #figure(
-  image("../img/fig_2_13.png", width: 70%),
+  box(
+    clip: true,
+    inset: (top: -2.4em),
+    image("../img/fig_2_13.png", width: 70%),
+  ),
   caption: [W模型示意图],
 ) <fig-wmodel>
 

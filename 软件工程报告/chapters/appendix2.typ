@@ -238,7 +238,7 @@
 // 此处将 RSA 对应的交互图截图粘贴，注意图的大小。
 
 #figure(
-  image("img/fig_a2_1.png", width: 90%),
+  image("../img/fig_a2_1.png", width: 90%),
   caption: [系统事件交互图示例],
 ) <fig-a2-1>
 

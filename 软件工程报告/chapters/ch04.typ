@@ -202,7 +202,7 @@ UML是一种标准的图形化建模语言，是面向对象分析与设计的�
 UML是用来描述模型的，用模型来描述系统的结构（或静态特征）及行为（或动态特征）。它从不同的视角为系统的架构建模，以用例视图为核心描述系统的不同视图（View），称为"4+1视图"，如图4-1所示。
 
 #figure(
-  image("img/fig_4_1.png", width: 70%),
+  image("../img/fig_4_1.png", width: 70%),
   caption: [UML的4+1视图],
 ) <fig_4_1>
 
@@ -243,7 +243,7 @@ UML是用来描述模型的，用模型来描述系统的结构（或静态特�
 基于领域模型及对用户需求的一些了解，在需求分析过程中还可以同时进行用例建模，也就是目标系统的逻辑模型。在对业务知识有一定了解的基础上，使用标准的UML用例图等元素表达用户对于系统功能的需求。在具体的建模过程中，领域模型和用例模型是相辅相成的，它们的关系如图4-2所示。
 
 #figure(
-  image("img/fig_4_2.png", width: 80%),
+  image("../img/fig_4_2.png", width: 80%),
   caption: [面向对象需求分析建模的活动],
 ) <fig_4_2>
 
@@ -283,7 +283,7 @@ UML是用来描述模型的，用模型来描述系统的结构（或静态特�
 通过领域模型，开发人员可以了解到领域内的关键概念、核心词汇和基本信息，所以某种程度上领域模型称为可视化的字典。图4-3使用UML的类图描述领域模型的组成元素及其关系。
 
 #figure(
-  image("img/fig_4_3.png", width: 85%),
+  image("../img/fig_4_3.png", width: 85%),
   caption: [领域模型元素及结构的UML表示],
 ) <fig_4_3>
 
@@ -406,8 +406,8 @@ UML对"关联"的定义是：两个或多个类之间有关其实例链接的语
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
     inset: (x: 8pt, y: 5pt),
-    image("img/fig_4_4.png", width: 100%),
-    image("img/fig_4_5.png", width: 100%),
+    image("../img/fig_4_4.png", width: 100%),
+    image("../img/fig_4_5.png", width: 100%),
   ),
   caption: [类的UML基本结构（左）与UML类的3种表示方法（右）],
 )
@@ -415,7 +415,7 @@ UML对"关联"的定义是：两个或多个类之间有关其实例链接的语
 在绘制类图时，上顶端的区域是必需的，下面的两个区域是可选择的，其主要原因是，在不同的建模过程中所关注的要点是不一样的。图4-5左侧表示只有类名称的类，图中间表示缺少操作的类，图右侧表示缺少属性的类。在构建领域模型时只需用前两种表示法即可。
 
 #figure(
-  image("img/fig_4_6.png", width: 50%),
+  image("../img/fig_4_6.png", width: 50%),
   caption: [IBMRSA中类及其属性的表示],
 ) <fig_4_6>
 
@@ -429,7 +429,7 @@ UML对"关联"的定义是：两个或多个类之间有关其实例链接的语
 UML规范定义以下6种类的关系，并且按照类关系由弱到强的次序进行描述，如图4-7所示。
 
 #figure(
-  image("img/fig_4_7.png", width: 90%),
+  image("../img/fig_4_7.png", width: 90%),
   caption: [UML类之间的关系及图形表示],
 ) <fig_4_7>
 
@@ -440,7 +440,7 @@ UML规范定义以下6种类的关系，并且按照类关系由弱到强的次�
 在现实生活当中，谈及热门话题"小升初"时，最直接的两个概念类就是"小学"和"初中"，其中关系是如果能升入满意而且比较好的初中，首要条件就是有一个好的"小学"。这里的"小学"必须是某一个具体的小学，而非小学里面的硬件设施或者某位好教师，如图4-8所示。
 
 #figure(
-  image("img/fig_4_8.png", width: 70%),
+  image("../img/fig_4_8.png", width: 70%),
   caption: [类之间的依赖关系示意图],
 ) <fig_4_8>
 
@@ -462,7 +462,7 @@ public class Man {
 ```
 
 #figure(
-  image("img/fig_4_9.png", width: 75%),
+  image("../img/fig_4_9.png", width: 75%),
   caption: [类之间的依赖关系],
 ) <fig_4_9>
 
@@ -473,7 +473,7 @@ public class Man {
 类的关联关系可分为双向关联、单向关联（即导航关联）、递归关联，以及关联类四种。UML规范使用没有箭头的实线表示关联关系，如图4-10所示为双向关联关系。
 
 #figure(
-  image("img/fig_4_10.png", width: 60%),
+  image("../img/fig_4_10.png", width: 60%),
   caption: [类之间的双向关联关系],
 ) <fig_4_10>
 
@@ -493,7 +493,7 @@ public class Book {
 如果关联关系之间存在导航关系，说明一个类是否可以访问另一个类的属性或者该类是否在属性中包含另一个类对象的引用，如图4-11所示为单向关联关系。
 
 #figure(
-  image("img/fig_4_11.png", width: 60%),
+  image("../img/fig_4_11.png", width: 60%),
   caption: [类之间具有导航的关联关系],
 ) <fig_4_11>
 
@@ -515,7 +515,7 @@ public class Book {
 当一个类A（整体类）拥有另一个类B（部分类），同时其他的类C也可分享类B，即类B不完全被类A所拥有时，它们之间存在聚合关系。换言之，部分类的对象不会因为整体类消失而不存在，这是聚合关系与组合关系之间最重要的区别。例如，学校由教师、学生、教学、科研等对象组成，则学校和教师之间存在聚合关系。在UML中，聚合关系由带空心菱形的直线表示，空心菱形一方连接整体类，另一端连接部分类，学校和教师的聚合关系如图4-12所示。
 
 #figure(
-  image("img/fig_4_12.png", width: 60%),
+  image("../img/fig_4_12.png", width: 60%),
   caption: [类的聚合关系一],
 ) <fig_4_12>
 
@@ -539,7 +539,7 @@ public class Customer {
 ```
 
 #figure(
-  image("img/fig_4_13.png", width: 55%),
+  image("../img/fig_4_13.png", width: 55%),
   caption: [类的聚合关系二],
 ) <fig_4_13>
 
@@ -548,7 +548,7 @@ public class Customer {
 当一个类A（整体类）完全拥有另一个类B（部分类），且其他任何类都不能分享类B时，它们之间存在组合关系。当整体类消失时，部分类也不会存在。例如，文档由章节组成，如果没有文档，章节不会独立存在。在UML中，由带有实心菱形的直线表示组合关系，实心菱形一方连接整体类，另一端连接部分类，文档与章节的组合关系如图4-14所示。
 
 #figure(
-  image("img/fig_4_14.png", width: 60%),
+  image("../img/fig_4_14.png", width: 60%),
   caption: [类的组合关系一],
 ) <fig_4_14>
 
@@ -565,7 +565,7 @@ public class Window extends Frame {
 ```
 
 #figure(
-  image("img/fig_4_15.png", width: 70%),
+  image("../img/fig_4_15.png", width: 70%),
   caption: [类的组合关系二],
 ) <fig_4_15>
 
@@ -579,8 +579,8 @@ public class Window extends Frame {
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
     inset: (x: 8pt, y: 5pt),
-    image("img/fig_4_16.png", width: 100%),
-    image("img/fig_4_17.png", width: 100%),
+    image("../img/fig_4_16.png", width: 100%),
+    image("../img/fig_4_17.png", width: 100%),
   ),
   caption: [类的继承关系（左）与关联类（右）],
 )
@@ -643,7 +643,7 @@ public class Window extends Frame {
 根据上面的分析过程和分析结果，可以得到初步的领域模型，如图4-18所示。其中，学生选课得到关联类"选课"，记录课程总评等信息；教师教授某门课程得到关联类"授课"，记录授课时间、地点等信息；教师监考某门课程得到关联类"监考"，记录监考时间、监考地点等信息，同时对考题进行细分，可以得到选择题、填空题、简答题和程序设计题。选择题又可进一步细分为单选题和多选题。关联类的概念和用法参见附录。
 
 #figure(
-  image("img/fig_4_18.png", width: 85%),
+  image("../img/fig_4_18.png", width: 85%),
   caption: [在线考试系统部分领域模型],
 ) <fig_4_18>
 
@@ -656,7 +656,7 @@ public class Window extends Frame {
 这些概念类之间的关系如图4-19所示。
 
 #figure(
-  image("img/fig_4_19.png", width: 85%),
+  image("../img/fig_4_19.png", width: 85%),
   caption: [某大学组织结构领域模型的类图表示],
 ) <fig_4_19>
 === 添加属性
@@ -720,7 +720,7 @@ public class Window extends Frame {
 #par(first-line-indent: 0em)[（7）基于每个系统顺序图，确定每个事件交互经过系统处理后应该返回给角色的声明。]
 
 #figure(
-  image("img/fig_4_20.png", width: 85%),
+  image("../img/fig_4_20.png", width: 85%),
   caption: [用例模型的基本元素、结构及与领域模型的关系],
 ) <fig_4_20>
 
@@ -729,7 +729,7 @@ public class Window extends Frame {
 用例图由角色（Actor）及对应的一个或多个用例组成。用例图中角色的多少隐含地说明问题域的范围。为了更加清晰地展示功能需求，基于用例场景的内容将一个用例分解成粒度更小的用例。可以理解为一个用户的功能需求可能由多个系统级的用例所对应。比如，银行储户使用ATM取款机取钱，从用户的角度出发只需描述成"取款"用例，但是经过具体的分析，"取款"用例还附加"密码验证"，以及"打印凭据"等子用例的情况。图4-21展示基本的用例图结构。
 
 #figure(
-  image("img/fig_4_21.png", width: 75%),
+  image("../img/fig_4_21.png", width: 75%),
   caption: [ATM取款机用例图],
 ) <fig_4_21>
 
@@ -747,8 +747,8 @@ public class Window extends Frame {
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
     inset: (x: 8pt, y: 5pt),
-    image("img/fig_4_22.png", width: 100%),
-    image("img/fig_4_23.png", width: 100%),
+    image("../img/fig_4_22.png", width: 100%),
+    image("../img/fig_4_23.png", width: 100%),
   ),
   caption: [角色的UML表示（左）与用例的UML表示（右）],
 )
@@ -796,8 +796,8 @@ public class Window extends Frame {
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
     inset: (x: 8pt, y: 5pt),
-    image("img/fig_4_24.png", width: 100%),
-    image("img/fig_4_25.png", width: 100%),
+    image("../img/fig_4_24.png", width: 100%),
+    image("../img/fig_4_25.png", width: 100%),
   ),
   caption: [角色与用例之间的"关联"（左）与具有多角色关联的用例图（右）],
 )
@@ -817,7 +817,7 @@ public class Window extends Frame {
 经过简单的分析后，可以根据初步的分析结果构建用例模型的第一个主要部分——用例图，如图4-26所示。
 
 #figure(
-  image("img/fig_4_26.png", width: 55%),
+  image("../img/fig_4_26.png", width: 55%),
   caption: [角色挂号人员的两个用例示例],
 ) <fig_4_26>
 
@@ -843,8 +843,8 @@ public class Window extends Frame {
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
     inset: (x: 8pt, y: 5pt),
-    image("img/fig_4_27.png", width: 100%),
-    image("img/fig_4_28.png", width: 100%),
+    image("../img/fig_4_27.png", width: 100%),
+    image("../img/fig_4_28.png", width: 100%),
   ),
   caption: [具有包含关系的用例图（左）与具有扩展关系的用例图（右）],
 )
@@ -852,7 +852,7 @@ public class Window extends Frame {
 经过上述内容的分析和修改，图4-26的结构可以变化为图4-29的内容，图中添加一个新的子用例"病历查询"，它是"新建挂号"用例的一个包含用例，解释成为"新建挂号"用例在执行到某一个环节时，将执行"病历查询"子用例，该子用例执行完成后，再继续执行新建用例的后续操作；除此之外，"创建病历"也可以成为"新建挂号"用例的一个扩展子用例，表明"新建挂号"用例在执行到某一步骤必须执行新建病历的情况时，可以调用子用例创建病历。
 
 #figure(
-  image("img/fig_4_29.png", width: 75%),
+  image("../img/fig_4_29.png", width: 75%),
   caption: [具有子用例的挂号用例图],
 ) <fig_4_29>
 
@@ -867,7 +867,7 @@ public class Window extends Frame {
 比如，银行储户使用ATM取款机取款及查询余额的过程存在输入密码的系统交互过程，为此在构建用例图时特别注意不将"密码验证"作为独立的用例存在。出现这种情况时，需反问这样的问题：登录系统后没有其他的操作么？登录系统的目的是什么？读者能够区分如图4-30所示的图中两个用例图哪一个更加合理。
 
 #figure(
-  image("img/fig_4_30.png", width: 70%),
+  image("../img/fig_4_30.png", width: 70%),
   caption: [两种表示密码验证用例的表示方法],
 ) <fig_4_30>
 
@@ -878,12 +878,12 @@ public class Window extends Frame {
 举例说明，当角色提出一个某类信息的查询时，比如挂号人员查询和调取病历信息，从需求分析的角度而言，只描述成"病历查询"即可，而不必进一步将其分解成：（1）数据库连接；（2）数据通信；（3）信息获取等具体的操作步骤。这些系统级别的操作步骤在软件对象设计时进行特殊的考虑，比如设计成一个专门负责数据库链接和操作的软件对象（DAO），由它负责所有业务级别对象的数据库表操作。图4-31展示这种问题两种错误的用例表达方式，图4-32展示正确用例的表达方式。
 
 #figure(
-  image("img/fig_4_31.png", width: 80%),
+  image("../img/fig_4_31.png", width: 80%),
   caption: [两种错误的系统操作型用例图表达方式],
 ) <fig_4_31>
 
 #figure(
-  image("img/fig_4_32.png", width: 45%),
+  image("../img/fig_4_32.png", width: 45%),
   caption: [正确的用例表达方式],
 ) <fig_4_32>
 
@@ -892,7 +892,7 @@ public class Window extends Frame {
 在获取信息管理系统的需求时，经常遇到某类表单增删改查的4种基本操作，为此许多初学者将表单的管理表示成该表单的4个用例：表单添加、表单查询、表单修改和表单删除。一个信息管理系统如果存在大量的表单操作，则会发现存在一大堆同样的4种增删改查的用例，这就产生用例表示的粒度问题。究其原因还是归结为对用例定义的理解层面上，在这里特别提醒初学者如果遇到诸如此类的表单4种操作，只需将其表示成"表单管理"用例即可。图4-33展示不合理（左）和合理（右）的用例图表达粒度。
 
 #figure(
-  image("img/fig_4_33.png", width: 80%),
+  image("../img/fig_4_33.png", width: 80%),
   caption: [不合理（左）及合理（右）的用例粒度],
 ) <fig_4_33>
 
@@ -957,7 +957,7 @@ public class Window extends Frame {
 图4-34是顾客通过某电子网站购买机票和预订酒店的两个用例场景，这两个基本用例都使用一个"填写联系资料"的包含子用例，还有一个购买机票的基本用例使用的一个扩展子用例"积分换里程"。
 
 #figure(
-  image("img/fig_4_34.png", width: 70%),
+  image("../img/fig_4_34.png", width: 70%),
   caption: [顾客购买机票和预订酒店的用例图],
 ) <fig_4_34>
 
@@ -1034,7 +1034,7 @@ public class Window extends Frame {
 系统顺序图（System Sequence Diagram, SSD）是通过使用UML的交互图元素，描述一个用例中角色与系统之间某一个场景的消息交互形式。SSD只有两类对象，一个是该用例中的角色对象，另一个是代表待构建系统的对象。一般情况下SSD只描述两个而不是两类对象，只有某些特殊的场景可能出现第3个角色对象，但是代表系统的对象只能是一个，角色对象将其视为一个黑盒对象，软件设计阶段对该对象内部进行设计，进一步描述软件系统内哪些软件对象响应角色发送给系统对象的系统事件。如图4-35展示系统顺序图的基本结构。
 
 #figure(
-  image("img/fig_4_35.png", width: 70%),
+  image("../img/fig_4_35.png", width: 70%),
   caption: [系统顺序图的基本结构],
 ) <fig_4_35>
 
@@ -1045,14 +1045,14 @@ public class Window extends Frame {
 建议和表示，为每一个用例的主要场景绘制一个系统顺序图，并为一些使用频率高和复杂的场景构建系统顺序图。表4-7用例描述内容对应的系统顺序图如图4-36所示。
 
 #figure(
-  image("img/fig_4_36.png", width: 65%),
+  image("../img/fig_4_36.png", width: 65%),
   caption: [Uc_006 订单处理用例的系统顺序图],
 ) <fig_4_36>
 
 循环部分表示服务员在点菜的过程循环记录顾客所点的每一道菜品，在有忌口的选择下使用"可选（Option）"片断来表示用例说明中相应的扩展用例部分。循环与可选的表示方法如图4-37所示。
 
 #figure(
-  image("img/fig_4_37.png", width: 65%),
+  image("../img/fig_4_37.png", width: 65%),
   caption: [循环与可选的表示方法],
 ) <fig_4_37>
 
