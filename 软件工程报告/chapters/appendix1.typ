@@ -1,4 +1,4 @@
-// 封面页
+﻿// 封面页
 #align(center)[
   #v(40pt)
   #text(size: 18pt, font: ("Noto Serif CJK SC", "Source Han Serif SC", "SimSun"))[附录一]
@@ -108,7 +108,7 @@
     columns: (auto, auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*编号*], [*预期读者*], [*阅读建议*],
     [1], [客户], [确认文档中给出的功能需求描述],
     [2], [开发方], [熟悉并掌握项目的各项功能要求],
@@ -135,7 +135,7 @@
     columns: (auto, auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*编号*], [*名称*], [*运行环境*],
     [1], [应用服务器], [CentOS release 6.4],
     [2], [Web 服务器], [Tomcat 6.0.26],
@@ -156,7 +156,7 @@
     columns: (auto, 1fr, auto),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*限制因素*], [*限制说明*], [*备注*],
     [必须采用的技术、工具、编程语言、数据库等], [B/S 混合结构，数据库采用 MySQL 数据库。其他无特殊限制], [无],
     [不能使用的技术、工具、编程语言、数据库等], [无特殊限制], [无],
@@ -176,7 +176,7 @@
     columns: (auto, 1fr, auto),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*编号*], [*假设*], [*备注*],
     [1], [客户端操作系统 IE 8.0 以上或 Firefox 3.0 以上版本], [无],
     [2], [对现有业务、功能描述与实际情况基本相符合，对需求变更不影响系统框架大调整], [无],
@@ -189,7 +189,7 @@
     columns: (auto, auto, 1fr, auto),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*编号*], [*依赖*], [*依赖说明*], [*备注*],
     [1], [MySQL], [业务数据存储在 MySQL 数据库中], [无],
     [2], [Tomcat], [系统 Web 发布通过 Tomcat 实现], [无],
@@ -235,7 +235,7 @@
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*字段*], [*内容*],
     [用例编号], [UC_C_03_01],
     [用例名称], [],
@@ -271,7 +271,7 @@
     columns: (auto, auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*系统事件名称*], [*用例*], [*参数说明*],
     [insert_card(No., Bankid)], [取款], [1. No.: int;\n2. Bankid: int;\n3. Bankname: string],
     [input_pwd(pwd)], [验证密码], [1. pwd: string],

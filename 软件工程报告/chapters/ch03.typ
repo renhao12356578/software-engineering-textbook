@@ -1,4 +1,4 @@
-#set heading(numbering: "1.1")
+﻿#set heading(numbering: "1.1")
 #show heading: it => {
   let level = it.level
   if level == 1 {
@@ -30,9 +30,9 @@
 
 在实际的软件开发项目中，需求分析活动之前还有一系列的准备活动。一般来说，软件开发活动分为两类：
 
-(1) 一种是软件产品的开发活动，其特征主要是以自身积累的经验和知识开发相对固定的软件制品。
+(1)一种是软件产品的开发活动，其特征主要是以自身积累的经验和知识开发相对固定的软件制品。
 
-(2) 另一种是软件项目的开发活动，其特征是项目的活动围绕软件委托方的需求，软件实施方开展的一系列软件开发活动。
+(2)另一种是软件项目的开发活动，其特征是项目的活动围绕软件委托方的需求，软件实施方开展的一系列软件开发活动。
 
 根据这两大类软件开发活动，软件项目正式启动也分为两种：一种是内部立项并启动；另一种是委托方和软件实施方签订正式的软件委托开发合同。无论哪一种类型的软件开发活动，软件项目的前期准备活动通常包括：项目预研和项目可行性分析，有时统称为系统分析。其目的是期望利用最短的时间和最小的成本进行必要的技术和经济等方面的分析，用以判断该项目是否能够达到预期的目标，是否能够获得预期的收益，技术上是否成熟并能满足系统开发的要求等。
 
@@ -153,7 +153,7 @@ $P = F / (1 + i)^n$
     columns: (auto, auto, auto, auto, auto),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     align: center + horizon,
     [*年份*], [*将来值/万元*], [$(1+i)^n$], [*现在值/万元*], [*累计的现在值/万元*],
     [1], [9.6], [1.0500], [9.1429], [9.1429],
@@ -417,7 +417,7 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
 需求管理过程产生的主要文档有《需求评审报告》、《需求跟踪报告》、《需求变更控制报告》。
 
 #figure(
-  image("../img/fig_3_4.png", width: 85%),
+  image("../img/fig_3_4.png", width: 50%),
   caption: [需求开发与需求管理流程图],
 ) <fig-3-4>
 
@@ -470,7 +470,7 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*目 的*], [获取用户（客户与最终用户）的需求信息，经过分析后产生《用户需求说明书》],
     [*角色与职责*], [需求分析员调查、分析用户的需求，客户与最终用户提供必要的需求信息],
     [*启动准则*], [需求分析员已经确定],
@@ -522,7 +522,7 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*调查方式*], [],
     [*调查人*], [],
     [*调查对象*], [],
@@ -560,23 +560,14 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
 
 #figure(
   table(
-    columns: (auto, 1fr),
-    fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
-    stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
-    [*项 目*], [*说 明*],
-    [0. 文档介绍], [0.1 文档目的、0.2 文档范围、0.3 读者对象、0.4 参考文档、0.5 术语与缩写解释],
-    [1. 产品介绍], [说明产品是什么，有什么用途；介绍产品的开发背景。],
-    [2. 产品面向的用户群体], [描述本产品面向的用户（客户、最终用户）的特征；说明本产品给用户带来什么好处？用户选择本产品的概率有多大？],
-    [3. 产品应当遵循的标准或规范], [阐述本产品应当遵循什么标准、规范或业务规则（Business Rules），违反标准、规范或业务规则的产品通常不太可能被接受。],
-    [4. 产品的功能需求], [按功能类别列出各项功能特征，如功能 A.1、功能 C.1 等。],
-    [5. 产品的非功能需求], [按需求类别列出各项需求：用户界面需求、软硬件需求、质量需求等。],
-    [6. 其他需求], [其他补充需求。],
-    [附 录], [用户需求调查报告。],
   ),
   caption: [《用户需求说明书》的参考模板],
 ) <tab-3-4>
 
+#figure(
+  image("../img/tab_3_4.png", width: 89%),
+  caption: [《用户需求说明书》的参考模板],
+) <tab-3-4>
 === 需求类别
 
 软件需求通常有以下 9 个大类：
@@ -606,7 +597,7 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
     columns: (auto, auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*大 类*], [*细 分*], [*内 容*],
     table.cell(rowspan: 12)[*目标系统的限制*], table.cell(rowspan: 4)[*性能*], [实时性],
     [其他的时间限制],
@@ -642,7 +633,7 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*目 的*], [定义准确无误的软件产品需求，产生《软件需求规格说明书》],
     [*角色与职责*], [需求分析员定义软件需求，客户与最终用户确认软件需求],
     [*启动准则*], [《用户需求说明书》已经撰写完成],
@@ -764,7 +755,7 @@ Frederick Brooks 在他 1987 年的经典文章 _No Silver Bullet_ 中阐述需�
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*目 的*], [开发方和客户对需求文档进行评审，并作书面承诺],
     [*角色与职责*], [开发方和客户共同组织人员对需求文档进行评审。双方负责人对需求文档作书面承诺，使之具有商业合同效果],
     [*启动准则*], [《用户需求说明书》和《软件需求规格说明书》已经完成],

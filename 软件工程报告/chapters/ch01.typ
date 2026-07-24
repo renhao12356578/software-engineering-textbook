@@ -1,4 +1,4 @@
-#set heading(numbering: "1.1")
+﻿#set heading(numbering: "1.1")
 #show heading: it => {
   let level = it.level
   if level == 1 {
@@ -214,7 +214,7 @@ IEEE 对软件的定义是：软件是计算机程序、规程，以及运行计
   table(
     columns: (1fr, 1fr, 1fr, 1fr),
     stroke: 0.5pt,
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     align: center + horizon,
     [类别], [参加人员数], [开发周期], [产品规模(LOC)],
     [微型], [1], [1～4 周], [0.5k],

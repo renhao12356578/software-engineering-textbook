@@ -1,4 +1,4 @@
-#set heading(numbering: "1.1")
+﻿#set heading(numbering: "1.1")
 #show heading: it => {
   let level = it.level
   if level == 1 {
@@ -129,7 +129,7 @@
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*字段*], [*内容*],
     [申请日期], [申请人],
     [拟满足日期], [优先级：低/中/高],
@@ -145,7 +145,7 @@
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*字段*], [*内容*],
     [申请日期], [修改负责人],
     [维护类型：改正/适应/完善/预防], [优先级：低/中/高],

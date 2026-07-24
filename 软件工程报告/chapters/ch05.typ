@@ -1,4 +1,4 @@
-#set heading(numbering: "1.1")
+﻿#set heading(numbering: "1.1")
 #show heading: it => {
   let level = it.level
   if level == 1 {
@@ -588,7 +588,7 @@ Petri网位置中如果加一个黑点，称之为标记（Token）。标记在�
   columns: 2,
   fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
   stroke: 0.6pt + luma(160),
-  inset: (x: 8pt, y: 5pt),
+  inset: (x: 8pt, y: 5pt), 
   [数据流名称], [唯一标识数据流的名称],
   [简要描述], [简要介绍该数据流的作用，即它产生的原因和结果],
   [数据流来源], [来源于何处],
@@ -603,7 +603,7 @@ Petri网位置中如果加一个黑点，称之为标记（Token）。标记在�
   columns: 2,
   fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
   stroke: 0.6pt + luma(160),
-  inset: (x: 8pt, y: 5pt),
+  inset: (x: 8pt, y: 5pt), 
   [数据元素名称], [唯一标识数据元素的名称或编号],
   [简要描述], [简要描述该数据元素的作用，以及位于哪一个数据结构内],
   [类型], [数字、字符等类型],
@@ -620,7 +620,7 @@ Petri网位置中如果加一个黑点，称之为标记（Token）。标记在�
   columns: 2,
   fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
   stroke: 0.6pt + luma(160),
-  inset: (x: 8pt, y: 5pt),
+  inset: (x: 8pt, y: 5pt), 
   [数据文件名称], [唯一标识数据文件的名称],
   [简要描述], [简要描述该数据文件存放什么数据],
   [输入数据], [写入该数据文件的数据内容或数据结构],
@@ -636,7 +636,7 @@ Petri网位置中如果加一个黑点，称之为标记（Token）。标记在�
   columns: 2,
   fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
   stroke: 0.6pt + luma(160),
-  inset: (x: 8pt, y: 5pt),
+  inset: (x: 8pt, y: 5pt), 
   [加工名称], [唯一标识加工的名称],
   [简要描述], [描述「加工」逻辑和规则及功能简述],
   [加工编号], [反映该「加工」的层次],
@@ -652,7 +652,7 @@ Petri网位置中如果加一个黑点，称之为标记（Token）。标记在�
   columns: 2,
   fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
   stroke: 0.6pt + luma(160),
-  inset: (x: 8pt, y: 5pt),
+  inset: (x: 8pt, y: 5pt), 
   [外部实体名称], [唯一标识外部实体的名称],
   [简要描述], [指明该实体的性质及与系统之间的关系],
   [有关数据流], [指明该外部实体与系统之间交互的数据流有哪些],
@@ -672,7 +672,7 @@ Petri网位置中如果加一个黑点，称之为标记（Token）。标记在�
     columns: 3,
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*符号*], [*含义*], [*举例*],
     [=], [被定义为], [例如，x = a + b，表示x由a和b组成],
     [+], [与], [],

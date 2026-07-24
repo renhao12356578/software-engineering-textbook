@@ -1,4 +1,4 @@
-#set heading(numbering: "1.1")
+﻿#set heading(numbering: "1.1")
 #show heading: it => {
   let level = it.level
   if level == 1 {
@@ -56,7 +56,7 @@
     columns: 2,
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [应用领域], [主要语言],
     [商业], [Cobol、C++、Java],
     [科学], [Fortran、C/C++、Java],

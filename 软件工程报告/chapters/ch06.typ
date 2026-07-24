@@ -1,4 +1,4 @@
-#set heading(numbering: "1.1")
+﻿#set heading(numbering: "1.1")
 #show heading: it => {
   let level = it.level
   if level == 1 {
@@ -844,7 +844,7 @@ Garlan 和 Shaw 认为软件体系结构是软件设计过程的一个层次，�
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*构件*], [*特点和示例*],
     [纯计算构件], [具有简单的输入/输出关系，没有运行状态的变化。例如，数值计算、过滤器（Filters）、转换器（Transformers）等],
     [存储构件], [存放共享、永久、结构化的数据。例如，数据库、文件、符号表、超文本等],
@@ -860,7 +860,7 @@ Garlan 和 Shaw 认为软件体系结构是软件设计过程的一个层次，�
     columns: (auto, 1fr),
     fill: (x, y) => if y == 0 { luma(220) } else if calc.odd(y) { luma(248) } else { none },
     stroke: 0.6pt + luma(160),
-    inset: (x: 8pt, y: 5pt),
+    inset: (x: 8pt, y: 5pt), 
     [*连接方式*], [*说明*],
     [过程调用], [在某一个执行路径中传递执行指针。例如，普通过程调用（同一个命名空间）、远程过程调用（不同的命名空间）],
     [数据流], [相互独立的处理通过数据流进行交互，在得到数据的同时被赋予控制权限。例如，UNIX 系统中的管道],

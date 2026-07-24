@@ -448,7 +448,7 @@ RAD模型通过大量使用可复用构件加快开发速度，对管理信息�
 原型方法可以支持软件生命周期的不同阶段，如图2-17所示。
 
 #figure(
-  image("../img/fig_2_17.png", width: 70%),
+  image("../img/fig_2_17.png", width: 50%),
   caption: [原型方法支持下的软件生命周期],
 ) <fig-prototyping-lifecycle>
 
@@ -697,20 +697,30 @@ RUP是一种通用的过程模板，包含很多开发指南、工件、开发�
 
 ==== 敏捷宣言（Manifesto for Agile Software Development）
 
-> We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
->
-> *Individuals and interactions* over processes and tools
->
-> *Working software* over comprehensive documentation
->
-> *Customer collaboration* over contract negotiation
->
-> *Responding to change* over following a plan
->
-> That is, while there is value in the items on the right, we value the items on the left more.
+#quote(block: true)[
+  We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
+
+  *Individuals and interactions* over processes and tools
+
+  *Working software* over comprehensive documentation
+
+  *Customer collaboration* over contract negotiation
+
+  *Responding to change* over following a plan
+
+  That is, while there is value in the items on the right, we value the items on the left more.
+]
 
 #text(size: 0.85em)[
-Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick, Robert C. Martin, Steve Mellor, Ken Schwaber, Jeff Sutherland, Dave Thomas
+  #grid(
+    columns: (1fr, 1fr, 1fr, 1fr),
+    row-gutter: 0.4em,
+    [Kent Beck],        [Mike Beedle],   [Arie van Bennekum], [Alistair Cockburn],
+    [Ward Cunningham],  [Martin Fowler], [James Grenning],    [Jim Highsmith],
+    [Andrew Hunt],      [Ron Jeffries],  [Jon Kern],          [Brian Marick],
+    [Robert C. Martin], [Steve Mellor],  [Ken Schwaber],      [Jeff Sutherland],
+    [Dave Thomas],      [],              [],                  [],
+  )
 ]
 
 ==== 敏捷建模价值观
