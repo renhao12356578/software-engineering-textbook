@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>志愿者招募 · 软件工程模型与方法 Typst 重排版</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #1a120a;
+      --red:    #c0392b;
+      --red-lt: #e74c3c;
+      --gold:   #b5862a;
+      --cream:  #f7f2ea;
+      --paper:  #ede8de;
+      --muted:  #6b5e4e;
+      --border: rgba(26,18,10,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Noto Serif SC", "EB Garamond", serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE overlay ── */
+    body::before {
+      content: "";
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(192,57,43,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 20%, rgba(181,134,42,0.10) 0%, transparent 60%);
+    }
+
+    .hero-stamp {
+      font-family: "Noto Serif SC", serif;
+      font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s ease forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #f0e8d8;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s ease forwards;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--red-lt);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: rgba(240,232,216,0.65);
+      font-weight: 300;
+      font-family: "Noto Sans SC", sans-serif;
+      max-width: 560px;
+      line-height: 1.9;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s ease forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s ease forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      border: 1.5px solid var(--red);
+    }
+    .btn-primary:hover { background: var(--red-lt); border-color: var(--red-lt); }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(240,232,216,0.8);
+      border: 1.5px solid rgba(240,232,216,0.3);
+    }
+    .btn-ghost:hover { border-color: rgba(240,232,216,0.7); color: #f0e8d8; }
+
+    .hero-divider {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      background: var(--cream);
+      clip-path: polygon(0 100%, 100% 100%, 100% 40%, 0 100%);
+    }
+
+    /* ── MAIN CONTENT ── */
+    main { position: relative; z-index: 1; }
+
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1.5px solid var(--red);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.8rem;
+      color: var(--ink);
+    }
+
+    /* ── CORE TASK CARD ── */
+    .task-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      padding: 2.5rem 2.8rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .task-card-badge {
+      position: absolute;
+      top: -0.8rem; left: 2.5rem;
+      background: var(--red);
+      color: #fff;
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      padding: 0.25rem 0.8rem;
+    }
+
+    .task-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--ink);
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      font-size: 0.95rem;
+      color: #3a2e22;
+      font-family: "Noto Sans SC", sans-serif;
+      line-height: 1.7;
+    }
+
+    .check-list li::before {
+      content: "✦";
+      color: var(--red);
+      font-size: 0.7rem;
+      margin-top: 0.4em;
+      flex-shrink: 0;
+    }
+
+    /* ── CHAPTER TABLE ── */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .chapter-item {
+      background: var(--cream);
+      padding: 1.1rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.5rem;
+      transition: background 0.15s;
+    }
+    .chapter-item:hover { background: var(--paper); }
+
+    .chapter-num {
+      font-family: "EB Garamond", serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 600;
+      min-width: 3rem;
+    }
+
+    .chapter-name {
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.85rem;
+      color: var(--ink);
+      flex: 1;
+    }
+
+    .chapter-tag {
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1px;
+      background: rgba(192,57,43,0.1);
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      display: flex; flex-direction: column; gap: 0;
+      margin-top: 2rem;
+      counter-reset: step;
+    }
+
+    .step {
+      display: flex; gap: 2rem; align-items: flex-start;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      counter-increment: step;
+      font-family: "EB Garamond", serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--paper);
+      -webkit-text-stroke: 1.5px var(--border);
+      min-width: 3rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .step-num::before { content: counter(step, decimal-leading-zero); }
+
+    .step-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-body p {
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .step-body a {
+      color: var(--red);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── FOOTER BANNER ── */
+    .footer-banner {
+      background: var(--ink);
+      color: rgba(240,232,216,0.6);
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: "Noto Sans SC", sans-serif;
+      font-size: 0.82rem;
+      line-height: 2.2;
+      position: relative; z-index: 1;
+    }
+
+    .footer-banner strong {
+      color: rgba(240,232,216,0.9);
+      font-weight: 500;
+    }
+
+    .footer-banner a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .footer-banner a:hover { text-decoration: underline; }
+
+    /* ── DECORATIVE RULE ── */
+    .ornament {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.2rem;
+      letter-spacing: 0.6em;
+      margin: 1.5rem 0;
+      opacity: 0.5;
+    }
+
+    /* ── ASIDE QUOTE ── */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 0.8rem 1.5rem;
+      margin: 2.5rem 0;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: var(--paper);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .step { gap: 1rem; }
+      .step-num { font-size: 2.5rem; }
+      .task-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero">
+  <p class="hero-stamp">开源项目 · 志愿者招募 · 2026</p>
+  <h1 class="hero-title">
+    召集<em>校对人</em><br>共同完善这本教材
+  </h1>
+  <p class="hero-sub">
+    《软件工程模型与方法（第 2 版）》Typst 重排版项目<br>
+    正在寻找愿意对照原书核查图片与文字的志愿者
+  </p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="https://github.com/renhao12356578/software-engineering-textbook/issues/new" target="_blank">
+      立即认领章节
+    </a>
+    <a class="btn btn-ghost" href="https://github.com/renhao12356578/software-engineering-textbook" target="_blank">
+      查看仓库
+    </a>
+  </div>
+  <div class="hero-divider"></div>
+</header>
+
+<main>
+
+  <!-- ════════════════ WHAT ════════════════ -->
+  <section>
+    <p class="section-label reveal">校对内容</p>
+    <h2 class="reveal">你需要做什么？</h2>
+
+    <div class="task-card reveal">
+      <span class="task-card-badge">核心任务</span>
+      <h3>图片核查</h3>
+      <ul class="check-list">
+        <li>图片是否缺失——源码中有引用但文件不存在</li>
+        <li>图片内容是否与原书对应——截图位置错误、张冠李戴</li>
+        <li>图片编号是否正确——<code>fig_4_1.png</code> 是否真的对应图 4-1</li>
+        <li>图片清晰度是否可接受——模糊、裁剪不完整</li>
+      </ul>
+    </div>
+
+    <div class="task-card reveal" style="border-left-color: var(--gold);">
+      <span class="task-card-badge" style="background: var(--gold);">辅助任务</span>
+      <h3>文字校对</h3>
+      <ul class="check-list">
+        <li>漏字、错字、标点错误</li>
+        <li>章节引用、图表编号与原书是否一致</li>
+        <li>公式、代码块格式是否正确</li>
+      </ul>
+    </div>
+
+    <blockquote class="reveal">
+      每章工作量约 1–3 小时，按章独立认领，互不干扰。无需一次完成全部章节。
+    </blockquote>
+  </section>
+
+  <!-- ════════════════ WHO ════════════════ -->
+  <section style="padding-top: 0;">
+    <div class="ornament reveal">· · ·</div>
+    <p class="section-label reveal">适合谁来</p>
+    <h2 class="reveal">我们需要什么样的人？</h2>
+    <ul class="check-list reveal" style="font-size:1rem; gap: 1rem;">
+      <li>学过或正在学软件工程课程的同学，读过这本书更佳</li>
+      <li>对细节有耐心，不怕做"找不同"类型的工作</li>
+      <li>熟悉 Typst 或 LaTeX 者优先——但<strong>非必须</strong>，能读懂源文件即可</li>
+    </ul>
+  </section>
+
+  <!-- ════════════════ CHAPTERS ════════════════ -->
+  <section style="padding-top: 0;">
+    <div class="ornament reveal">· · ·</div>
+    <p class="section-label reveal">章节列表</p>
+    <h2 class="reveal">认领一章，从这里开始</h2>
+    <div class="chapter-grid reveal">
+      <div class="chapter-item"><span class="chapter-num">01</span><span class="chapter-name">软件工程概述</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">02</span><span class="chapter-name">软件过程</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">03</span><span class="chapter-name">需求工程</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">04</span><span class="chapter-name">结构化分析与设计</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">05</span><span class="chapter-name">面向对象分析</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">06</span><span class="chapter-name">面向对象设计</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">07</span><span class="chapter-name">软件实现</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">08</span><span class="chapter-name">软件测试</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">09</span><span class="chapter-name">软件维护</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">10</span><span class="chapter-name">软件项目管理</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">11</span><span class="chapter-name">软件质量保证</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">12</span><span class="chapter-name">软件配置管理</span><span class="chapter-tag">开放认领</span></div>
+      <div class="chapter-item"><span class="chapter-num">附录</span><span class="chapter-name">附录 1–3</span><span class="chapter-tag">开放认领</span></div>
+    </div>
+  </section>
+
+  <!-- ════════════════ HOW ════════════════ -->
+  <section style="padding-top: 0;">
+    <div class="ornament reveal">· · ·</div>
+    <p class="section-label reveal">参与流程</p>
+    <h2 class="reveal">三步加入</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h3>认领章节</h3>
+          <p>在 GitHub 开一个 Issue，标题写 <code>[校对认领] 第 X 章</code>，说明你想负责的章节。<br>
+          <a href="https://github.com/renhao12356578/software-engineering-textbook/issues/new" target="_blank">→ 点此开 Issue</a></p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h3>Fork 仓库并校对</h3>
+          <p>Fork 后，对照原书 PDF，在对应 <code>chapters/chXX.typ</code> 文件中直接修改，或用注释标注问题。<br>
+          <a href="https://github.com/renhao12356578/software-engineering-textbook" target="_blank">→ 查看仓库</a></p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h3>提交 Pull Request</h3>
+          <p>PR 被合并后，你的名字会自动出现在 README 贡献者列表中，无需手动操作。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer-banner">
+  <p><strong>本项目为学习性质的开源整理，无报酬。</strong></p>
+  <p>但你的贡献将帮助更多同学获得更高质量的学习资源。</p>
+  <br>
+  <p>
+    <a href="https://github.com/renhao12356578/software-engineering-textbook" target="_blank">github.com/renhao12356578/software-engineering-textbook</a>
+  </p>
+  <br>
+  <p style="font-size:0.75rem; opacity:0.4;">
+    《软件工程模型与方法（第 2 版）》著作权归原作者肖丁、傅佳鹏及北京邮电大学出版社所有。本项目仅供个人学习。
+  </p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
